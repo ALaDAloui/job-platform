@@ -1,0 +1,210 @@
+<div class="inner-banner">
+  <div class="container">
+    <div class="inner-title text-center">
+      <h3></h3>
+      <ul>
+        <li>
+          <a>Profil</a>
+        </li>
+        <li>{{ condidat?.firstName }} {{ condidat?.lastName }}</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="candidates-details-area pt-100 pb-70">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3">
+        <div class="candidates-details-right">
+          <div class="content-profile">
+            <div class="content-profile-img">
+              <img
+                src="http://localhost:8085/users/files/{{ condidat?.image }}"
+                alt="Images"
+              />
+            </div>
+            <div class="title">
+              <h3>
+                {{ condidat?.username }}
+              </h3>
+            </div>
+            <p>{{ condidat?.niveau }}</p>
+            <!-- <div class="rating">
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill rating-color"></i>
+              <i class="ri-star-fill rating-color"></i>
+            </div> -->
+            <ul class="social-icon">
+              <li>
+                <a href="https://www.facebook.com/" target="_blank">
+                  <i class="ri-facebook-fill"></i>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/" target="_blank">
+                  <i class="ri-instagram-fill"></i>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/" target="_blank">
+                  <i class="ri-twitter-fill"></i>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/" target="_blank">
+                  <i class="ri-linkedin-fill"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="content-info">
+            <h3>Contact Info</h3>
+            <ul>
+              <li>
+                <span>Location</span>
+                <a> {{ condidat?.location }}</a>
+              </li>
+              <li>
+                <span>Email</span>
+                <a> {{ condidat?.email }}</a>
+              </li>
+              <li>
+                <span>Phone</span>
+                <a> {{ condidat?.telephone }}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="content-widget-right">
+          <h3>Consulter Cv</h3>
+          <a
+            href="http://www.africau.edu/images/default/sample.pdf"
+            target="_blank"
+            class="download-btn"
+            >PDF Formate CV <i class="ri-file-download-line"></i
+          ></a>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="candidates-details-content">
+          <div class="content">
+            <h3>Infos</h3>
+            <div class=""></div>
+            <p>{{ condidat?.about }}&nbsp;</p>
+          </div>
+          <div class="candidates-details-experience">
+            <h3>Expériences</h3>
+            <div class=""></div>
+            <div class="experience-card" *ngFor = "let experience of listexperience">
+
+              <h3> {{ experience.titre }}</h3>
+              <h3> Societé : {{ experience.nomEntreprise }}</h3>
+              <span>{{ experience.typeEmploi }}</span>
+              <ul class="experience-list">
+                <li>
+                  {{ experience.nomPoste }}
+                  <i class="ri-time-line"></i>Date Début : {{ experience.dateDebut }}
+                </li>
+                <li>
+                  <i class="ri-time-line"></i>Date Fin : {{ experience.dateFin }}
+                </li>
+                <li><i class="ri-map-pin-line"></i>{{ experience.lieu }}</li>
+              </ul>
+            </div>
+
+            <!-- <div class="experience-card">
+              <img
+                src="assets/images/recent-job/recent-job5.jpg"
+                alt="Images"
+              />
+              <h3>Sr. UI/UX Designer</h3>
+              <span>99 Coding</span>
+              <ul class="experience-list">
+                <li>
+                  <i class="ri-time-line"></i> Jun 2019 - April 2021- 2 Years
+                </li>
+                <li><i class="ri-map-pin-line"></i> 105 San Antonio, TX</li>
+              </ul>
+            </div> -->
+          </div>
+       
+          <div class="candidates-education" >
+            <h3>Formation & parcour</h3>
+            <div class="bar"></div>
+            <div class="education-card mb-30" *ngFor = "let formation of listformation">
+              <img
+                src="assets/images/recent-job/recent-job13.jpg"
+                alt="Images"
+              />
+              <h3>{{ formation.nomPoste }}</h3>
+              <span>{{ formation.description }}</span>
+              <ul class="experience-list">
+                <li>
+                  <i class="ri-time-line"></i> Début {{ formation.dateDebut }}
+                </li>
+                <li>
+                  <i class="ri-time-line"></i> Fin {{ formation.dateFin }}
+                </li>
+                <li><i class="ri-map-pin-line"></i>{{ formation.ecole }}</li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <div class="other-candidates-list">
+          <h3 class="title">Autre Candidats</h3>
+          <div class=""></div>
+          <ul>
+            <li *ngFor="let condidat of listcandidat">
+              <div class="profile"  >
+                <img
+              src="http://localhost:8085/users/files/{{condidat.image}}"
+                alt="Images"
+              />
+              </div>
+              <div class="sub-title">
+                <h3>
+                  <a [routerLink]="['/detail', condidat.id]">{{
+                    condidat.username
+                  }}</a>
+                </h3>
+                <!-- <img src="assets/images/user-img/flag.png" alt="Images" /> -->
+              </div>
+              <p>{{condidat.about}}</p>
+              <!-- <div class="rating">
+                <i class="ri-star-fill"></i>
+                <i class="ri-star-fill"></i>
+                <i class="ri-star-fill"></i>
+                <i class="ri-star-fill rating-color"></i>
+                <i class="ri-star-fill rating-color"></i>
+              </div> -->
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="employers-cv-bg">
+  <div class="row align-items-center">
+    <div class="col-lg-8">
+      <div class="employers-cv-content">
+        <h2>Trouver plus d'opportunités!</h2>
+        <div class=""></div>
+        <p>
+        </p>
+      </div>
+    </div>
+    <div class="col-lg-4 ">
+      <div class="employers-cv-btn">
+        <a class="ri-rout" routerLink="/listoffre">Chercher un emploi</a>
+      </div>
+    </div>
+  </div>
+</div>

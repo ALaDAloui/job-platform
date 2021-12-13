@@ -1,0 +1,294 @@
+<br />
+<br />
+<br />
+<div class="card text-center  ">
+  <div class="blog-details-area pt-100 pb-70">
+    <div class="container">
+      <div class="blog-details-content">
+        <div class="content">
+          <div class="card-header bg-warning mb-3">
+            <h2>{{ examen.title }}</h2>
+          </div>
+          <br>
+
+          <ul>
+            <!-- <li class="images">
+            <img src="assets/images/blog/blog-user.jpg" alt="Images" />
+          </li> -->
+            <li>by {{ examen.en.firstName }}</li>
+            <li>
+              <i class="ri-time-line"></i> Crée le : {{ examen.createdAt }}
+            </li>
+            <li>
+              <i class="ri-time-line"></i> Modifié le : {{ examen.updatedAt }}
+            </li>
+            <li><i class="ri-mark-pen-fill"></i>Note sur : {{ examen.maxMarks }}</li>
+            <li><a href="tags.html">Ajouter question</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="blog-preview-img">
+        <div class="blog-details-content">
+          <div class="blog-articel">
+            <h3>Déscription</h3>
+            <div class=""></div>
+            <p>
+              {{ examen.description }}
+            </p>
+            <!-- <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Feugiat
+              enim a erat sit vulputate elementum orci. Risus nec viverra ornare
+              venenatis proin ac varius tristique ut. Vitae egestas tellus amet
+              nulla cursus in that. Pellentesque placerat maecenas egestas
+              ullamcorper sed sarinto. Lorem ipsum dolor sit amet, consectetur
+              adipiscing Feugiat enim a erat sit vulputate.
+            </p> -->
+          </div>
+          <!-- <blockquote class="blockquote">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Feugiat
+              enim a erat sit vulputate elementum orci. Risus nec viverra ornare
+              venenatis proin ac varius tristique ut. Vitae egestas tellus amet
+              nulla cursus in that.
+            </p>
+            <span>Thomas Deltom</span>
+            <div class="line1"></div>
+            <div class="line2"></div>
+          </blockquote> -->
+          <!-- <div class="blog-details-list">
+        <h3>What You’ll Learn</h3>
+        <div class="bar"></div>
+        <div class="row">
+          <div class="col-lg-6 col-md-6">
+            <ul>
+              <li><i class="ri-check-line"></i> Become a UI/UX designer.</li>
+              <li>
+                <i class="ri-check-line"></i> You will be able to start earning
+                money skills.
+              </li>
+              <li>
+                <i class="ri-check-line"></i> Build a UI project from beginning
+                to end
+              </li>
+              <li>
+                <i class="ri-check-line"></i> Work with colors &amp; fonts.
+              </li>
+              <li>
+                <i class="ri-check-line"></i> You will create your own UI Kit.
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-6 col-md-6">
+            <ul>
+              <li>
+                <i class="ri-check-line"></i> Create low-fidelity airframe.
+              </li>
+              <li>
+                <i class="ri-check-line"></i> Learn to design mobile apps &amp;
+                websites.
+              </li>
+              <li><i class="ri-check-line"></i> Design 3 different logos.</li>
+              <li>
+                <i class="ri-check-line"></i> Build &amp; test a complete mobile
+                app.
+              </li>
+              <li>
+                <i class="ri-check-line"></i> Downloadable exercise files.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div> -->
+          <div class="blog-portfolio">
+            <h3>Questions</h3>
+            <div class=""></div>
+            <!-- <div class="row gallery-photo">
+          <div class="col-lg-3 col-6 col-md-3">
+            <div class="blog-portfolio-img">
+              <a href="assets/images/blog/blog-details-img2.jpg">
+                <img
+                  src="assets/images/blog/blog-details-img2.jpg"
+                  alt="Images"
+                />
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-6 col-md-3">
+            <div class="blog-portfolio-img">
+              <a href="assets/images/blog/blog-details-img3.jpg">
+                <img
+                  src="assets/images/blog/blog-details-img3.jpg"
+                  alt="Images"
+                />
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-6 col-md-3">
+            <div class="blog-portfolio-img">
+              <a href="assets/images/blog/blog-details-img4.jpg">
+                <img
+                  src="assets/images/blog/blog-details-img4.jpg"
+                  alt="Images"
+                />
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-6 col-md-3">
+            <div class="blog-portfolio-img">
+              <a href="assets/images/blog/blog-details-img5.jpg">
+                <img
+                  src="assets/images/blog/blog-details-img5.jpg"
+                  alt="Images"
+                />
+              </a>
+            </div>
+          </div>
+        </div> -->
+          </div>
+          <div class="blog-details-list-two" *ngFor="let question of listquestion">
+            <h4> {{question.content}}</h4>
+            <h6> La réponse est:  {{question.answer}}</h6>
+            <ul>
+              <li>
+                {{question.option1}}
+              </li>
+              <li>
+                {{question.option2}}
+              </li>
+              <li>
+                {{question.option3}}
+              </li>
+              <li>
+                {{question.option4}}
+              </li>
+            </ul>
+          </div>
+          <!-- <div class="article-share-area">
+        <div class="row align-items-center">
+          <div class="col-lg-9 col-sm-9">
+            <div class="article-social-icon">
+              <ul class="social-icon">
+                <li class="title">Share Post</li>
+                <li>
+                  <a href="https://www.facebook.com/" target="_blank">
+                    <i class="ri-facebook-fill"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.instagram.com/" target="_blank">
+                    <i class="ri-instagram-fill"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://twitter.com/" target="_blank">
+                    <i class="ri-twitter-fill"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.linkedin.com/" target="_blank">
+                    <i class="ri-linkedin-fill"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-3 col-sm-3">
+            <div class="tag"><a href="tags.html">Marketing</a></div>
+          </div>
+        </div>
+      </div> -->
+          <!-- <div class="comments-form">
+        <div class="contact-form">
+          <h3>Leave A Message</h3>
+          <form id="contactForm" novalidate="true">
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label>Your Name</label>
+                  <input
+                    type="text"
+                    name="name"
+                    id="name"
+                    class="form-control"
+                    required=""
+                    data-error="Please Enter Your Name"
+                  />
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label>Your Email</label>
+                  <input
+                    type="email"
+                    name="email"
+                    id="email"
+                    class="form-control"
+                    required=""
+                    data-error="Please Enter Your Email"
+                  />
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label>Your Website</label>
+                  <input
+                    type="text"
+                    required=""
+                    data-error="Please Enter Your Website"
+                    class="form-control"
+                  />
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label>Your Subject</label>
+                  <input
+                    type="text"
+                    name="msg_subject"
+                    id="msg_subject"
+                    class="form-control"
+                    required=""
+                    data-error="Please Enter Your Subject"
+                  />
+                </div>
+              </div>
+              <div class="col-lg-12 col-md-12">
+                <div class="form-group">
+                  <label>Your Comment</label>
+                  <textarea
+                    name="comment"
+                    class="form-control"
+                    cols="30"
+                    rows="5"
+                    required=""
+                    data-error="Write Your Comment"
+                  ></textarea>
+                </div>
+              </div>
+              <div class="col-lg-12 col-md-12">
+                <div class="agree-label">
+                  <input type="checkbox" id="chb1" />
+                  <label for="chb1">
+                    Save my name, email, and website in this browser for the
+                    next time I comment.
+                  </label>
+                </div>
+              </div>
+              <div class="col-lg-12 col-md-12">
+                <button
+                  type="submit"
+                  class="default-btn border-radius-5 disabled"
+                  style="pointer-events: all; cursor: pointer"
+                >
+                  Send Message <i class="ri-chat-4-line"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

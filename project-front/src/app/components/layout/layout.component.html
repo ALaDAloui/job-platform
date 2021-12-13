@@ -1,0 +1,270 @@
+<div class="banner-area">
+  <div class="container-fluid">
+    <div class="row align-items-center">
+      <div class="col-lg-7">
+        <div class="banner-content">
+          <h1
+            class="wow fadeInLeft"
+            data-wow-delay="000ms"
+            data-wow-duration="1000ms"
+          >
+          Il y a plus de 500 emplois disponibles près de chez vous
+
+          </h1>
+          <p
+            class="wow fadeInLeft"
+            data-wow-delay="100ms"
+            data-wow-duration="1000ms"
+          >
+          Trouver un emploi, embaucher des experts ou être embauché dans les ventes et le marketing
+        </p>
+          <div
+            class=" wow fadeInLeft"
+            data-wow-delay="200ms"
+            data-wow-duration="1000ms"
+          >
+            <!-- <form [formGroup]="searchform">
+              <div class="row">
+                <div class="col-lg-3 col-sm-4">
+                  <div class="form-group">
+                    <input name="titre" formControlName="titre"
+                      class="form-control"
+                      type="text"
+                      placeholder="Keywords / Job Title"
+                    />
+                    <i class="ri-search-line"></i>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-sm-4">
+                  <div class="form-group">
+                    <input name="region" formControlName="region"
+                      class="form-control"
+                      type="text"
+                      placeholder="City or Postcode"
+                    />
+                    <i class="ri-map-pin-line"></i>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-sm-4">
+                  <div class="form-group select-group">
+                    <select class="form-select form-control"    name="category" [(ngModel)]="category" >
+                      <option data-display="Choose A Category">
+                        Choose A Category
+                      </option>
+                      <option *ngFor="let categorie of listCategorie" [value]="categorie.nom">
+                        {{ categorie.nom }}
+                      </option>
+
+                    </select>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-sm-12">
+                  <button type="submit" class="submit-btn border-radius-5" (click)="getoffrebycategory($event)" (click)="getoffrebytitle();">
+                    Find Jobs
+                  </button>
+                </div>
+              </div>
+            </form> -->
+            <!-- <div class="col-lg-3 col-sm-12">
+              <button routerLink="/listoffre"  class="default-btn border-radius-5">
+                Trouver un emploi
+              </button>
+            </div> -->
+            <div class="optional-item">
+              <a routerLink="/listoffre" class="default-btn border-radius-5"
+                >Trouver un emploi <i class="ri-briefcase-2-line"></i
+              ></a>
+            </div>
+          </div>
+          <!-- <div
+            class="popular-searches-tag wow fadeInLeft"
+            data-wow-delay="300ms"
+            data-wow-duration="1000ms"
+          >
+            <span class="title">Popular Searches : </span>
+            <a href="job-listing.html">Designer</a>,
+            <a href="job-listing.html">Developer</a>,
+            <a href="job-listing.html">Web</a>,
+            <a href="job-listing.html">IOS</a>,
+            <a href="job-listing.html">PHP</a>,
+            <a href="job-listing.html">Senior</a>,
+            <a href="job-listing.html">Engineer</a>
+          </div> -->
+          <!-- <ul>
+            <li class="title">1000+ candidats</li>
+            <li>
+              <img src="assets/images/user-img/user-img1.jpg" alt="Images" />
+            </li>
+            <li>
+              <img src="assets/images/user-img/user-img2.jpg" alt="Images" />
+            </li>
+            <li>
+              <img src="assets/images/user-img/user-img3.jpg" alt="Images" />
+            </li>
+            <li>
+              <img src="assets/images/user-img/user-img4.jpg" alt="Images" />
+            </li>
+            <li>
+              <img src="assets/images/user-img/user-img5.jpg" alt="Images" />
+            </li>
+          </ul> -->
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <div class="banner-img">
+          <img
+          src="assets/images/home-two/home-two-img1.jpg"
+            alt="Banner Images"
+            class="wow fadeInUp"
+            data-wow-delay="000ms"
+            data-wow-duration="1000ms"
+          />
+          <div class="banner-img-shape">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="banner-shape">
+    <div class="shape-in-one">
+      <img src="assets/images/home-one/shape1.png" alt="Images" />
+    </div>
+    <div class="shape-in-two">
+      <img src="assets/images/home-one/shape2.png" alt="Images" />
+    </div>
+  </div>
+</div>
+
+<div class="browse-jobs-area pt-100 pb-70">
+  <div class="container">
+    <div class="section-title text-center">
+      <h2>Parcourir les emplois par catégorie      </h2>
+      <div class="bar m-auto"></div>
+      <p class="m-auto">Plus que 6 catégories   </p>
+    </div>
+    <div class="row pt-45 justify-content-center">
+      <div class="col-lg-4 col-sm-6"  *ngFor="let categorie of listCategorie">
+        <div class="browse-jobs-card">
+          <div class="icon">
+            <i class="ri-stack-line"></i>
+          </div>
+          <h3><a  [routerLink]="['/listoffre']">{{ categorie.nom }}</a></h3>
+          <p>==></p>
+          <a  class="more-btn"
+            ><i class="ri-arrow-right-s-line"></i
+          ></a>
+        </div>
+      </div>
+
+      <div class="col-lg-12 text-center">
+        <div class="browse-btn">
+          <a href="job-listing.html">
+            Parcourir toutes les catégories
+ <i class="ri-arrow-right-s-line"></i
+          ></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="find-jobs-area pt-100 pb-70"  >
+  <div class="container">
+    <div class="section-title text-center">
+      <h2>Trouvez l'emploi de vos rêves
+      </h2>
+      <div class="bar m-auto"></div>
+      <p class="m-auto">Parcourir plus que 100 offres</p>
+    </div>
+    <div class="row pt-45">
+      <div class="col-lg-12"  *ngFor = "let offre of listrandom">
+        <div class="find-jobs-card d-flex align-items-center">
+          <div class="find-jobs-img">
+            <a href="job-details.html">
+              <img src="http://localhost:8085/users/files/{{offre.e.image}}" alt="Images" />
+            </a>
+          </div>
+          <div class="content">
+            <ul class="content-list">
+              <li class="time">{{offre.typeemploi}}</li>
+              <li class="freelance">{{offre.niveauEtudes}}</li>
+              <li class="internship">{{offre.typeContrat}}</li>
+            </ul>
+            <h3>
+              <a [routerLink]="['/detailoffre',offre.id]">  {{offre.titre}}</a>
+            </h3>
+            <ul class="content-list2">
+              <li class="list-one">{{offre.e.nom_entreprise}}</li>
+              <li class="list-two">
+                <i class="ri-time-line"></i>{{offre.createdAt}}
+              </li>
+            </ul>
+            <ul class="content-list3">
+              <li>
+                <i class="ri-briefcase-line"></i> Category :
+                <b>{{offre.co.nom}}</b>
+              </li>
+              <li>
+                <i class="ri-map-pin-line"></i> Location :
+                <b>{{offre.region}}</b>
+              </li>
+              <li>
+                <i class="ri-currency-line"></i>Salary :
+                <b>{{offre.salaire}}</b>
+              </li>
+            </ul>
+          </div>
+          <div class="find-jobs-btn">
+            <a
+              href="candidates-dashboard-applied-job.html"
+              class="default-btn border-radius-5"
+              >Postuler maintenant<i class="ri-send-plane-2-line"></i
+            ></a>
+          </div>
+          <button class="bookmark-btn"><i class="ri-bookmark-line"></i></button>
+        </div>
+      </div>
+
+      <div class="col-lg-12 text-center">
+        <div class="browse-btn">
+          <a routerLink="/listoffre">
+            Trouver votre prochaine opportunité professionnelle <i class="ri-arrow-right-s-line"></i
+          ></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="employers-cv-area">
+  <div class="container">
+    <div class="employers-cv-bg">
+      <div class="row align-items-center">
+        <div class="col-lg-8">
+          <div class="employers-cv-content">
+            <h2>Laissez les employeurs vous trouver
+            </h2>
+            <div class="bar"></div>
+            <p>
+               Créer un profil et partager votre expérience profesionnelle avec des millions d'utilisateurs mensuels et recherchez des milliers
+               d'offres d'emploi dans notre base de données.
+
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="employers-cv-btn">
+            <a
+             routerLink="/registerC"
+              >Inscrivez vous & Créer votre profil unique
+              </a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

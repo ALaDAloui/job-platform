@@ -1,0 +1,155 @@
+<br />
+<br />
+<br />
+<br />
+<div class="breadcrumb-area">
+  <h1>Admin</h1>
+  <ol class="breadcrumb">
+    <li class="item"><a href="dashboard.html">Gestion des comptes</a></li>
+    <li class="item">Entreprises</li>
+  </ol>
+</div>
+
+<div class="manage-jobs-box">
+  <h3>Entreprises</h3>
+  <div class="bar"></div>
+  <div
+    class="manage-jobs-table table-responsive"
+    *ngFor="let entreprise of listEntreprise"
+  >
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Nom de l'entreprise</th>
+          <th>Secteur d'activité</th>
+          <th>Date de création du compte</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <a>
+              <div>
+                <img
+                  width="90"
+                  height="90"
+                  src="http://localhost:8085/users/files/{{ entreprise.image }}"
+                  alt="Images"
+                />
+
+              </div>
+            </a>
+          </td>
+
+          <td>
+            <h5>{{ entreprise.username }}
+              <br>
+              <br>
+              <span>
+                <a href="{{entreprise.fblink}}" target="_blank">
+                  <i class="ri-facebook-fill"></i>
+                </a>
+              </span>
+              <span>
+                <a href="{{entreprise.instalink}}" target="_blank">
+                  <i class="ri-instagram-fill"></i>
+                </a>
+              </span>
+              <span>
+                <a href="{{entreprise.twitterlink}}" target="_blank">
+                  <i class="ri-twitter-fill"></i>
+                </a>
+              </span>
+              <span>
+                <a href="{{entreprise.linkedlink}}" target="_blank">
+                  <i class="ri-linkedin-fill"></i>
+                </a>
+              </span>
+            </h5>
+
+            <span><i class="ri-map-pin-line"></i> {{ entreprise.region }}  </span>
+            <span
+              ><i class="ri-radar-fill"></i> {{ entreprise.siteWeb }}  </span
+            >
+            <span
+              ><i class="ri-phone-line"></i> {{ entreprise.telephone }} </span
+            >
+
+            <br>
+
+
+          </td>
+
+          <td>
+            {{ entreprise.sect_activite }}
+          </td>
+          <td>{{ entreprise.createdAt }}</td>
+          <td>
+            <div class="status">{{ entreprise.etat }}</div>
+          </td>
+          <td>
+            <ul class="option-list">
+              <li>
+                <button
+                  class="option-btn d-inline-block"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title=""
+                  type="button"
+                  data-bs-original-title="View offre"
+                  aria-label="View offre"
+                >
+                  <i class="ri-eye-line"></i>
+                </button>
+              </li>
+              <li></li>
+              <li>
+                <button (click)="updateEtat1(entreprise.id)"
+                  class="option-btn d-inline-block"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title=""
+                  type="button"
+                  data-bs-original-title="Valider Compte"
+                  aria-label="Valider Compte"
+                >
+                  <i class="ri-check-line"></i>
+                </button>
+              </li>
+              <li>
+                <button (click)="updateEtat2(entreprise.id)"
+                  class="option-btn d-inline-block"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title=""
+                  type="button"
+                  data-bs-original-title="Refuser compte"
+                  aria-label="Refuser compte"
+                >
+                  <i class="ri-close-line"></i>
+                </button>
+              </li>
+              <li>
+                <button
+                  (click)="deleteEntreprise(entreprise.id)"
+                  class="option-btn d-inline-block"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title=""
+                  type="button"
+                  data-bs-original-title="Supprimer Compte"
+                  aria-label="Supprimer Compte"
+                >
+                  <i class="ri-delete-bin-line"></i>
+                </button>
+              </li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

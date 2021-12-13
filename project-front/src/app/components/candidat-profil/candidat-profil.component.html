@@ -1,0 +1,442 @@
+<div class="inner-banner">
+  <div class="container">
+    <div class="inner-title text-center">
+      <h3>{{userconnect.firstName}} {{userconnect.lastName}}</h3>
+      <ul>
+        <li>
+          <a href="index.html">Acceuil</a>
+        </li>
+        <li>Mon profil</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="candidates-details-area pt-100 pb-70">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3">
+        <div class="candidates-details-right">
+          <div class="content-profile">
+            <div class="content-profile-img">
+              <img
+              src="http://localhost:8085/users/files/{{userconnect.image}}"
+                alt="Images"
+              />
+            </div>
+            <div class="title">
+              <h3>
+                {{ userconnect.username }}
+              </h3>
+              <!-- <img src="assets/images/freelancers/flag.png" alt="Images" /> -->
+            </div>
+            <p>{{ userconnect.niveau }}</p>
+            <!-- <div class="rating">
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill"></i>
+              <i class="ri-star-fill rating-color"></i>
+              <i class="ri-star-fill rating-color"></i>
+            </div> -->
+            <ul class="social-icon">
+              <li>
+                <a href="https://www.facebook.com/" target="_blank">
+                  <i class="ri-facebook-fill"></i>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/" target="_blank">
+                  <i class="ri-instagram-fill"></i>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/" target="_blank">
+                  <i class="ri-twitter-fill"></i>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/" target="_blank">
+                  <i class="ri-linkedin-fill"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="content-info">
+            <h3>Contact</h3>
+            <ul>
+              <li>
+                <span>Location</span>
+                <a> {{ userconnect.location }}</a>
+              </li>
+              <li>
+                <span>Email</span>
+                <a> {{ userconnect.email }}</a>
+              </li>
+              <li>
+                <span>Phone</span>
+                <a> {{ userconnect.telephone }}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="content-widget-right">
+          <h3>Telecharger Cv</h3>
+          <a
+            href="http://www.africau.edu/images/default/sample.pdf"
+            target="_blank"
+            class="download-btn"
+            >PDF Formate CV <i class="ri-file-download-line"></i
+          ></a>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="candidates-details-content">
+          <div class="content">
+            <h3>Infos</h3>
+            <div class="bar"></div>
+            <p>{{ userconnect.about }}</p>
+          </div>
+          <h3> Expérience   <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            (click)="open(content)"
+            data-supported-dps="24x24"
+            fill="currentColor"
+            class="mercado-match"
+            width="24"
+            height="24"
+            focusable="false"
+            ali
+          >
+            <path d="M21 13h-8v8h-2v-8H3v-2h8V3h2v8h8z"></path>
+          </svg></h3>
+          <div class="candidates-details-experience"  *ngFor = "let experience of listexperience">
+
+
+
+
+            <div class=""></div>
+            <div class="experience-card">
+              <!-- <img
+                src="assets/images/recent-job/recent-job4.jpg"
+                alt="Images"
+              /> -->
+              <h3>{{ experience.titre }}</h3>
+              <span> Société : {{ experience.nomEntreprise }}</span>
+              <span>{{ experience.typeEmploi }}</span>
+              <ul class="experience-list">
+                <li>
+                  {{ experience.nomPoste }}
+                  <i class="ri-time-line"></i>Date Début : {{ experience.dateDebut }}
+                </li>
+                <li>
+                  <i class="ri-time-line"></i>Date Fin : {{ experience.dateFin }}
+                </li>
+                <li><i class="ri-map-pin-line"></i>{{ experience.lieu }}</li>
+              </ul>
+            </div>
+            <!-- <div class="experience-card">
+              <img
+                src="assets/images/recent-job/recent-job5.jpg"
+                alt="Images"
+              />
+              <h3>Sr. UI/UX Designer</h3>
+              <span>99 Coding</span>
+              <ul class="experience-list">
+                <li>
+                  <i class="ri-time-line"></i> Jun 2019 - April 2021- 2 Years
+                </li>
+                <li><i class="ri-map-pin-line"></i> 105 San Antonio, TX</li>
+              </ul>
+            </div> -->
+          </div>
+          <!-- <div class="candidates-skill">
+            <h3>Compétences
+              <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              data-supported-dps="24x24"
+              fill="currentColor"
+              class="mercado-match"
+              width="24"
+              height="24"
+              focusable="false"
+              ali
+            >
+              <path d="M21 13h-8v8h-2v-8H3v-2h8V3h2v8h8z"></path>
+            </svg> </h3>
+            <div class="bar"></div>
+            <ul class="candidates-skill-tag">
+              <li><a href="tags.html" target="_blank">Visual Design</a></li>
+              <li><a href="tags.html" target="_blank">UI/UX Design</a></li>
+              <li><a href="tags.html" target="_blank">Agile</a></li>
+              <li><a href="tags.html" target="_blank">Prototyping</a></li>
+              <li><a href="tags.html" target="_blank">New Layout</a></li>
+              <li><a href="tags.html" target="_blank">Career</a></li>
+            </ul>
+          </div> -->
+          <h3>Formation
+            <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            (click)="open1(content1)"
+            data-supported-dps="24x24"
+            fill="currentColor"
+            class="mercado-match"
+            width="24"
+            height="24"
+            focusable="false"
+            ali
+          >
+            <path d="M21 13h-8v8h-2v-8H3v-2h8V3h2v8h8z"></path>
+          </svg>
+          </h3>
+          <div class="candidates-education" *ngFor = "let formation of listformation">
+
+            <div class=""></div>
+            <div class="education-card mb-30">
+
+              <h3>{{ formation.nomPoste }}</h3>
+              <span>{{ formation.description }}</span>
+              <ul class="experience-list">
+                <li>
+                  <i class="ri-time-line"></i> Début {{ formation.dateDebut }}
+                </li>
+                <li>
+                  <i class="ri-time-line"></i> Fin {{ formation.dateFin }}
+                </li>
+                <li><i class="ri-map-pin-line"></i>{{ formation.ecole }}</li>
+              </ul>
+            </div>
+            <!-- <div class="education-card">
+              <img
+                src="assets/images/recent-job/recent-job14.jpg"
+                alt="Images"
+              />
+              <h3>Masters in Art Design</h3>
+              <span>Harvard University</span>
+              <ul class="experience-list">
+                <li>
+                  <i class="ri-time-line"></i> Jun 2020 - April 2021- 1 Years
+                </li>
+                <li><i class="ri-map-pin-line"></i> Brylin, USA</li>
+              </ul>
+            </div> -->
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3">
+        <div class="other-candidates-list">
+          <h3 class="title">Autre Candidats</h3>
+          <div class=""></div>
+          <ul>
+            <li *ngFor="let condidat of listcandidat">
+              <div class="profile"  >
+                <img
+              src="http://localhost:8085/users/files/{{condidat.image}}"
+                alt="Images"
+              />
+              </div>
+              <div class="sub-title">
+                <h3>
+                  <a [routerLink]="['/detail', condidat.id]">{{
+                    condidat.username
+                  }}</a>
+                </h3>
+                <img src="assets/images/user-img/flag.png" alt="Images" />
+              </div>
+              <p>{{condidat.about}}</p>
+              <div class="rating">
+                <i class="ri-star-fill"></i>
+                <i class="ri-star-fill"></i>
+                <i class="ri-star-fill"></i>
+                <i class="ri-star-fill rating-color"></i>
+                <i class="ri-star-fill rating-color"></i>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="employers-cv-bg">
+  <div class="row align-items-center">
+    <div class="col-lg-8">
+      <div class="employers-cv-content">
+        <h2>Trouver plus d'opportunités</h2>
+        <div class=""></div>
+        <p>
+        </p>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="employers-cv-btn">
+        <a routerLink="/listoffre">Offres d'emploi</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Form modal ajouter expérience -->
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Ajouter une expérience</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="experienceForm" (ngSubmit)="onSubmit()">
+      <div class="form-row">
+        <div class="form-group col-5">
+          <label> Intitulé de poste </label>
+          <input type="text" formControlName="nomPoste" class="form-control" />
+        </div>
+        <div class="form-group col-5">
+          <label>Type d’emploi </label>
+          <input
+            type="text"
+            formControlName="typeEmploi"
+            class="form-control"
+          />
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Nom de l’entreprise </label>
+        <input
+          type="text"
+          formControlName="nomEntreprise"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+        <label>Lieu </label>
+        <input type="text" formControlName="lieu" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label>Date début </label>
+        <input
+          type="text"
+          formControlName="dateDebut"
+          class="form-control"
+          type="date"
+        />
+      </div>
+      <div class="form-group">
+        <label>Date Fin </label>
+        <input
+          type="text"
+          formControlName="dateFin"
+          class="form-control"
+          type="date"
+        />
+      </div>
+      <div class="form-group">
+        <label>Titre </label>
+        <input type="text" formControlName="titre" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label>Secteur </label>
+        <input type="text" formControlName="secteur" class="form-control" />
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="submit"
+      class="btn btn-outline-dark"
+      (click)="onSubmit(); modal.close('Save click')"
+    >
+      Save
+    </button>
+  </div>
+</ng-template>
+
+<!-- <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button> -->
+
+<hr />
+
+<pre>{{ closeResult }}</pre>
+
+<!-- Form modal ajouter formation -->
+
+<ng-template #content1 let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Ajouter une formation</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="formationForm" (ngSubmit)="onSubmit1()">
+      <div class="form-row">
+        <div class="form-group col-5">
+          <label> École  </label>
+          <input type="text" formControlName="ecole" class="form-control" />
+        </div>
+        <div class="form-group col-5">
+          <label>Diplôme  </label>
+          <input
+            type="text"
+            formControlName="diplome"
+            class="form-control"
+          />
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Domaine d’études  </label>
+        <input
+          type="text"
+          formControlName="domaineEtude"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+        <label>Date de début  </label>
+        <input type="date" formControlName="dateDebut" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label>Date de fin (ou prévue) </label>
+        <input
+          formControlName="dateFin"
+          class="form-control"
+          type="date"
+        />
+      </div>
+      <div class="form-group">
+        <label>Résultat obtenu </label>
+        <input type="text" formControlName="resultat" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label>Descriptif </label>
+        <input type="text" formControlName="description" class="form-control" />
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="submit"
+      class="btn btn-outline-dark"
+      (click)="onSubmit1(); modal.close('Save click')"
+    >
+      Save
+    </button>
+  </div>
+</ng-template>
+
+<!-- <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button> -->
+
+<hr />
+
+<pre>{{ closeResult }}</pre>

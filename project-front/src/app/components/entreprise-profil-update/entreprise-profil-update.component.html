@@ -1,0 +1,224 @@
+<br />
+<br />
+<br />
+<br />
+<div class="breadcrumb-area">
+  <h1>Profil</h1>
+  <ol class="breadcrumb">
+    <li class="item"><a href="dashboard.html">Modifier</a></li>
+    <li class="item">Profil</li>
+  </ol>
+</div>
+
+<div class="my-profile-box">
+  <h3>Changer Profile</h3>
+  <div class="bar"></div>
+  <div class="profile-outer-area">
+    <div class="profile-outer">
+      <div class="profileButton">
+        <input
+          class="profileButton-input"
+          type="file"
+          name="attachments[]"
+          accept="image/*, application/pdf"
+          id="upload"
+          multiple=""
+        />
+
+        <!-- <label class="profileButton-button ripple-effect" for="upload" (change)="handleFileInput($event)"
+        name="file"  > -->
+
+
+        <img class="profileButton-button ripple-effect"
+          src="http://localhost:8085/users/files/{{ userconnect.image }}"
+          alt="Images"
+        />
+        <div class="form-group col-md-6">
+          <label for="exampleInputPassword1">File</label>
+          <input
+            type="file"
+            (change)="handleFileInput($event)"
+            name="file"
+            class="form-control"
+            id="exampleRepeatPassword"
+            placeholder="file"
+          />
+        <!-- Browse Logo -->
+        <!-- </label > -->
+        <br>
+          <button type="submit" class="default-btn" (click)="onSubmit()">
+            Enregistrer image
+          </button>
+        </div>
+
+
+        <span class="profileButton-file-name"></span>
+      </div>
+
+    </div>
+
+  </div>
+  <form [formGroup]="entrepriseUpdateForm">
+    <div class="row align-items-center">
+      <div class="col-xl-6 col-lg-12 col-md-12">
+        <div class="form-group">
+          <label>Nom entreprise </label>
+          <input
+            placeholder="{{ userconnect.nom_entreprise }}"
+            formControlName="nom_entreprise"
+            name="nom_entreprise"
+            type="text"
+            class="form-control"
+          />
+        </div>
+      </div>
+      <!-- <div class="col-xl-6 col-lg-12 col-md-12">
+        <div class="form-group">
+          <label>Email address</label>
+          <input placeholder="telephone" value="{{userconnect.telephone}}" formControlName="telephone" name="telephone"
+            type="email"
+            class="form-control"
+            placeholder="Email address"
+          />
+        </div>
+      </div> -->
+      <div class="col-xl-6 col-lg-12 col-md-12">
+        <div class="form-group">
+          <label>Phone</label>
+          <input
+            value="{{ userconnect.telephone }}"
+            formControlName="telephone"
+            name="telephone"
+            type="text"
+            class="form-control"
+          />
+        </div>
+      </div>
+      <div class="col-xl-6 col-lg-12 col-md-12">
+        <div class="form-group">
+          <label>Website</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="{{ userconnect.siteWeb }}"
+            formControlName="siteWeb"
+            name="siteWeb"
+          />
+        </div>
+      </div>
+
+      <div class="col-xl-6 col-lg-12 col-md-12">
+        <div class="form-group select-group">
+          <label>Année creation</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="{{ userconnect.anneeCreation }}"
+            formControlName="anneeCreation"
+            name="anneeCreation"
+          />
+        </div>
+      </div>
+
+      <div class="col-lg-12 col-md-12">
+        <div class="form-group">
+          <label>About Company</label>
+          <textarea
+            placeholder="{{ userconnect.description }}"
+            formControlName="description"
+            name="description"
+            cols="30"
+            rows="6"
+            placeholder="Short description about company..."
+            class="form-control"
+          ></textarea>
+        </div>
+      </div>
+      <div class="col-xl-6 col-lg-12 col-md-12">
+        <div class="form-group select-group">
+          <label>Country</label>
+          <input
+            placeholder="{{ userconnect.region }}"
+            formControlName="region"
+            name="region"
+            type="email"
+            class="form-control"
+            placeholder="Email address"
+          />
+        </div>
+      </div>
+      <div class="col-xl-6 col-lg-12 col-md-12">
+        <div class="form-group select-group">
+          <label>Adresse</label>
+          <input
+            placeholder="{{ userconnect.adresse }}"
+            formControlName="adresse"
+            name="adresse"
+            type="email"
+            class="form-control"
+            placeholder="Email address"
+          />
+        </div>
+      </div>
+      <div class="col-xl-6 col-lg-12 col-md-12">
+        <div class="form-group select-group">
+          <label>secteur activite</label>
+          <input
+            placeholder="{{ userconnect.sect_activite }}"
+            formControlName="sect_activite"
+            name="sect_activite"
+            type="email"
+            class="form-control"
+            placeholder="Email address"
+          />
+        </div>
+      </div>
+
+      <!-- <div class="col-xl-6 col-lg-12 col-md-12">
+        <div class="form-group">
+          <label>Facebook URL</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="https://www.facebook.com/"
+          />
+        </div>
+      </div>
+      <div class="col-xl-6 col-lg-12 col-md-12">
+        <div class="form-group">
+          <label>Twitter URL</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="https://twitter.com/"
+          />
+        </div>
+      </div>
+      <div class="col-xl-6 col-lg-12 col-md-12">
+        <div class="form-group">
+          <label>Linkedin URL</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="https://www.linkedin.com/"
+          />
+        </div>
+      </div>
+      <div class="col-xl-6 col-lg-12 col-md-12">
+        <div class="form-group">
+          <label>Instagram URL</label>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="https://instagram.com/"
+          />
+        </div>
+      </div> -->
+      <div class="col-lg-12 col-md-12">
+        <button type="submit" class="default-btn" (click)="updateentreprise()">
+          Enregister<i class="flaticon-send"></i>
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

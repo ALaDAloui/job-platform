@@ -1,0 +1,665 @@
+<!-- <div class="inner-banner">
+  <div class="container">
+    <div class="inner-title text-center">
+      <h3>Job Listing</h3>
+      <ul>
+        <li>
+          <a href="index.html">Home</a>
+        </li>
+        <li>Job Listing</li>
+      </ul>
+    </div>
+  </div>
+</div> -->
+<br>
+<br>
+<br>
+<br>
+<div class="job-listing-area pt-100 pb-70">
+  <div class="container">
+    <div class="job-listing-top">
+      <div class="row align-items-center">
+        <div class="col-lg-12">
+          <div class="job-listing-form">
+            <form>
+              <div class="row align-items-center">
+                <div class="col-lg-3 col-md-4">
+                  <div class="form-group">
+                    <input
+                      class="form-control"
+                      name="term_search1"
+                      [(ngModel)]="term_search1"
+                      type="text"
+                      placeholder="Mot clé /Titre de l'offre"
+                    />
+                    <i class="ri-search-line"></i>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                  <div class="form-group">
+                    <input
+                      class="form-control"
+                      name="term_search"
+                      [(ngModel)]="term_search"
+                      type="text"
+                      placeholder="Lieux"
+                    />
+                    <i class="ri-map-pin-line"></i>
+                  </div>
+                </div>
+                <div class="col-lg-3 col-sm-4">
+                  <div class="form-group select-group">
+                    <select
+                      class="form-select form-control"
+                      (change)="changeoffrebycategory($event)"
+                    >
+                      <option data-display="Choose A Category">
+                        Choisir une categorie
+                      </option>
+                      <option
+                        *ngFor="let categorie of listCategorie"
+                        [value]="categorie.id"
+                      >
+                        {{ categorie.nom }}
+                      </option>
+                      <!-- <option value="2">Web Developer</option>
+<option value="2">FontEnd Developer</option>
+<option value="2">Creative Agency</option>
+<option value="3">Engineer</option> -->
+                    </select>
+                  </div>
+                </div>
+                <!-- <div class="col-lg-3 col-md-12">
+                  <button type="submit" class="submit-btn border-radius-5">
+                    Chercher un emploi
+                  </button>
+                </div> -->
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="job-listing-side-bar">
+          <!-- <div class="job-listing-side-bar-content">
+            <h3>Create Job Alert</h3>
+            <p>Create a job alert now and never miss any job update.</p>
+            <img src="assets/images/alarm.png" alt="Images" />
+            <form>
+              <div class="row align-items-center">
+                <div class="col-lg-12">
+                  <div class="form-group">
+                    <input
+                      class="form-control"
+                      type="text"
+                      placeholder="Keywords / Job Title"
+                    />
+                  </div>
+                </div>
+                <div class="col-lg-12 col-md-12">
+                  <button type="submit" class="default-btn border-radius-5">
+                    Create Job Alert <i class="ri-briefcase-2-line"></i>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div> -->
+          <div class="job-listing-widget">
+            <ul class="accordion-widget">
+              <li class="accordion-widget-item">
+                <a class="accordion-widget-title" href="javascript:void(0)">
+                  <i class="ri-arrow-down-s-line"></i>
+                  Type d'emploi
+                </a>
+                <ul class="accordion-widget-content show">
+                  <li>
+                    <input
+                      id="check-f"
+                      value="Full Time"
+                      (change)="Onchangetype($event)"
+                      type="checkbox"
+                    />
+                    <label for="check-f"
+                      >Full Time <span class="fl">4</span></label
+                    >
+                  </li>
+                  <li>
+                    <input
+                      id="check-a"
+                      type="checkbox"
+                      value="Part Time"
+                      (change)="Onchangetype($event)"
+                    />
+                    <label for="check-a"
+                      >Part Time <span class="fl">2</span>
+                    </label>
+                  </li>
+                  <li>
+                    <input
+                      id="check-b"
+                      type="checkbox"
+                      value="Remote Jobs"
+                      (change)="Onchangetype($event)"
+                    />
+                    <label for="check-b"
+                      >Remote Jobs <span class="fl">1</span></label
+                    >
+                  </li>
+                  <li>
+                    <input
+                      id="check-c"
+                      type="checkbox"
+                      value="Internship"
+                      (change)="Onchangetype($event)"
+                    />
+                    <label for="check-c"
+                      >Internship <span class="fl">0</span>
+                    </label>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div class="job-listing-widget">
+            <ul class="accordion-widget">
+              <li class="accordion-widget-item">
+                <a class="accordion-widget-title" href="javascript:void(0)">
+                  <i class="ri-arrow-down-s-line"></i>
+                  Types de contrats
+                </a>
+                <ul class="accordion-widget-content show">
+                  <li>
+                    <input
+                      id="check-1"
+                      type="checkbox"
+                      value="CDI"
+                      (change)="Onchangetype1($event)"
+                    />
+                    <label for="check-1">CDI <span class="fl">7</span></label>
+                  </li>
+                  <li>
+                    <input
+                      id="check-2"
+                      type="checkbox"
+                      value="SIVP"
+                      (change)="Onchangetype1($event)"
+                    />
+                    <label for="check-2"
+                      >SIVP <span class="fl">2</span>
+                    </label>
+                  </li>
+                  <li>
+                    <input
+                      id="check-3"
+                      type="checkbox"
+                      value="CDD"
+                      (change)="Onchangetype1($event)"
+                    />
+                    <label for="check-3">CDD <span class="fl">2</span></label>
+                  </li>
+                  <li>
+                    <input
+                      id="check-4"
+                      type="checkbox"
+                      value="KARAMA"
+                      (change)="Onchangetype1($event)"
+                    />
+                    <label for="check-4"
+                      >karama <span class="fl">0</span>
+                    </label>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div class="job-listing-widget">
+            <ul class="accordion-widget">
+              <li class="accordion-widget-item">
+                <a class="accordion-widget-title" href="javascript:void(0)">
+                  <i class="ri-arrow-down-s-line"></i>
+                  Intervale salaire
+                </a>
+                <ul class="accordion-widget-content show">
+                  <li>
+                    <input
+                      id="check-7"
+                      type="checkbox"
+                      value="400DT - 600DT"
+                      (change)="Onchangetype2($event)"
+                    />
+                    <label for="check-7"
+                      >400DT - 600DT<span class="fl">0</span></label
+                    >
+                  </li>
+                  <li>
+                    <input
+                      id="check-8"
+                      type="checkbox"
+                      value="600DT - 800DT"
+                      (change)="Onchangetype2($event)"
+                    />
+                    <label for="check-8"
+                      >600DT - 800DT<span class="fl">2</span>
+                    </label>
+                  </li>
+                  <li>
+                    <input
+                      id="check-9"
+                      type="checkbox"
+                      value="800DT - 1000DT"
+                      (change)="Onchangetype2($event)"
+                    />
+                    <label for="check-9"
+                      >800DT - 1000DT<span class="fl">3</span></label
+                    >
+                  </li>
+                  <li>
+                    <input
+                      id="check-10"
+                      type="checkbox"
+                      value="1000DT - 1200DT"
+                      (change)="Onchangetype2($event)"
+                    />
+                    <label for="check-10"
+                      >1000DT - 1200DT<span class="fl">5</span>
+                    </label>
+                  </li>
+                  <li>
+                    <input
+                      id="check-11"
+                      type="checkbox"
+                      value="1200DT - 1500DT"
+                      (change)="Onchangetype2($event)"
+                    />
+                    <label for="check-11"
+                      >1200DT - 1500DT<span class="fl">0</span></label
+                    >
+                  </li>
+                  <li>
+                    <input
+                      id="check-12"
+                      type="checkbox"
+                      value="1500DT - 2000DT"
+                      (change)="Onchangetype2($event)"
+                    />
+                    <label for="check-12"
+                      >1500DT - 2000DT<span class="fl">0</span></label
+                    >
+                  </li>
+                  <li>
+                    <input
+                      id="check-12"
+                      type="checkbox"
+                      value="2000DT - 2500DT"
+                      (change)="Onchangetype2($event)"
+                    />
+                    <label for="check-12"
+                      >2000DT - 2500DT<span class="fl">0</span></label
+                    >
+                  </li>
+                  <li>
+                    <input
+                      id="check-12"
+                      type="checkbox"
+                      value="2500DT - 3000DT"
+                      (change)="Onchangetype2($event)"
+                    />
+                    <label for="check-12"
+                      >2500DT - 3000DT<span class="fl">0</span></label
+                    >
+                  </li>
+                  <li>
+                    <input
+                      id="check-12"
+                      type="checkbox"
+                      value="Plus que 3000DT"
+                      (change)="Onchangetype2($event)"
+                    />
+                    <label for="check-12"
+                      >Plus que 3000DT<span class="fl">0</span></label
+                    >
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <!-- <div class="job-listing-side-bar-content">
+            <h3>Genre </h3>
+            <form>
+              <div class="row align-items-center">
+                <div class="col-lg-12">
+                  <div class="form-group select-group">
+                    <select class="form-control form-select">
+                      <option data-display="Gender">Gender</option>
+                      <option value="1">Male</option>
+                      <option value="2">Female</option>
+                      <option value="3">Other</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div> -->
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="job-listing-topper">
+          <div class="row align-items-center">
+            <div class="col-lg-6">
+              <div class="job-listing-title">
+                <h3>Environ ..{{listoffre.length}}.. résultats </h3>
+              </div>
+            </div>
+            <!-- <div class="col-lg-6">
+
+              <div class="job-listing-category">
+                <div class="row">
+                  <div class="col-lg-6 col-6">
+                    <div class="form-group select-group">
+                      <select class="form-select form-control">
+                        <option data-display="Sort By (Default)">
+                          Sort By (Default)
+                        </option>
+                        <option value="1">Top Rate</option>
+                        <option value="2">Mid Rate</option>
+                        <option value="3">Low Rated</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-6">
+                    <div class="form-group select-group">
+                      <select class="form-select form-control">
+                        <option data-display="06 Per Pages">
+                          06 Per Pages
+                        </option>
+                        <option value="1">03 Per Pages</option>
+                        <option value="2">06 Per Pages</option>
+                        <option value="3">09 Per Pages</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+          </div>
+        </div>
+        <div class="row pt-45">
+          <!-- *****Offre list***** -->
+
+          <div
+            class="col-lg-12"
+            *ngFor="
+              let offre of listoffre
+                | recherche: term_search 
+                | recherchetitle: term_search1
+                |paginate: { itemsPerPage: 5, currentPage: p }
+
+            "
+          >
+            <div class="recent-job-card box-shadow">
+              <div class="content">
+                <div class="recent-job-img">
+                    <a>
+                      <img width="70"
+                      src="http://localhost:8085/users/files/{{offre.e.image}}"
+                      alt="Images"
+                    />
+
+                    </a>
+                </div>
+                <h3>
+                  <a [routerLink]="['/detailoffre', offre.id]">{{
+                    offre.titre
+                  }}</a>
+                </h3>
+                <ul class="job-list1">
+                  <li>
+                    <i class="ri-briefcase-line"></i> {{ offre.typeContrat }}
+                  </li>
+                  <li><i class="ri-time-line"></i> {{ offre.createdAt }}</li>
+                </ul>
+                <span><i class="ri-map-pin-line"></i> {{ offre.region }}</span>
+              </div>
+              <div class="job-sub-content">
+                <ul class="job-list2">
+                  <li class="time">{{ offre.typeemploi }}</li>
+                  <li class="freelance">{{ offre.salaire }}</li>
+                  <li class="urgent">{{ offre.niveauEtudes }}</li>
+                </ul>
+                <div class="price">{{ offre.salaire }}<b>/Mois</b></div>
+              </div>
+              <button class="bookmark-btn" (click)="onSubmit(offre)">
+                <i class="ri-bookmark-line"></i>
+              </button>
+            </div>
+          </div>
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+          <div class="col-lg-12">
+            <!-- <div class="recent-job-card box-shadow">
+    <div class="content">
+    <div class="recent-job-img">
+    <a href="job-details.html">
+    <img src="assets/images/recent-job/recent-job5.jpg" alt="Images">
+    </a>
+    </div>
+    <h3><a href="job-details.html">Creative Director</a></h3>
+    <ul class="job-list1">
+    <li><i class="ri-briefcase-line"></i> Automotive Jobs</li>
+    <li><i class="ri-time-line"></i> 2 Hour Ago</li>
+    </ul>
+    <span><i class="ri-map-pin-line"></i> 105 San Antonio, TX</span>
+    </div>
+    <div class="job-sub-content">
+    <ul class="job-list2">
+    <li class="time">Full Time</li>
+    <li class="freelance">Freelance</li>
+    </ul>
+    <div class="price">$120 - $140 <b>/Per Week</b></div>
+    </div>
+    <button class="bookmark-btn"><i class="ri-bookmark-line"></i></button>
+     </div>
+    </div>
+    <div class="col-lg-12">
+    <div class="recent-job-card box-shadow">
+    <div class="content">
+    <div class="recent-job-img">
+    <a href="job-details.html">
+    <img src="assets/images/recent-job/recent-job6.jpg" alt="Images">
+    </a>
+    </div>
+    <h3><a href="job-details.html">General Ledger Accountant</a></h3>
+    <ul class="job-list1">
+    <li><i class="ri-briefcase-line"></i> Accounting &amp; Finance</li>
+    <li><i class="ri-time-line"></i> 1 Day Ago</li>
+    </ul>
+    <span><i class="ri-map-pin-line"></i> 320 Los Angeles, CA</span>
+    </div>
+    <div class="job-sub-content">
+    <ul class="job-list2">
+    <li class="time">Full Time</li>
+    <li class="freelance">Freelance</li>
+    <li class="internship">Internship</li>
+    </ul>
+    <div class="price">$120 - $140 <b>/Per Week</b></div>
+    </div>
+    <button class="bookmark-btn"><i class="ri-bookmark-line"></i></button>
+    </div>
+    </div>
+    <div class="col-lg-12">
+    <div class="recent-job-card box-shadow">
+    <div class="content">
+    <div class="recent-job-img">
+    <a href="job-details.html">
+    <img src="assets/images/recent-job/recent-job7.jpg" alt="Images">
+    </a>
+    </div>
+    <h3><a href="job-details.html">Finance Manager &amp; Health </a></h3>
+    <ul class="job-list1">
+    <li><i class="ri-briefcase-line"></i> Medical &amp; Health</li>
+    <li><i class="ri-time-line"></i> 5 Days Ago</li>
+    </ul>
+    <span><i class="ri-map-pin-line"></i> 320 Atlanta, GA</span>
+    </div>
+    <div class="job-sub-content">
+    <ul class="job-list2">
+    <li class="time">Full Time</li>
+    <li class="freelance">Freelance</li>
+    <li class="urgent">Urgent</li>
+    </ul>
+    <div class="price">$30 - $40 <b>/Per Hour</b></div>
+    </div>
+    <button class="bookmark-btn"><i class="ri-bookmark-line"></i></button>
+    </div>
+    </div>
+    <div class="col-lg-12">
+     <div class="recent-job-card box-shadow">
+    <div class="content">
+    <div class="recent-job-img">
+    <a href="job-details.html">
+    <img src="assets/images/recent-job/recent-job8.jpg" alt="Images">
+    </a>
+    </div>
+    <h3><a href="job-details.html">Group Marketing Manager</a></h3>
+    <ul class="job-list1">
+    <li><i class="ri-briefcase-line"></i> Customer</li>
+    <li><i class="ri-time-line"></i> 3 Days Ago</li>
+    </ul>
+    <span><i class="ri-map-pin-line"></i> 305 Hicks St Brooklyn, NY</span>
+    </div>
+    <div class="job-sub-content">
+    <ul class="job-list2">
+    <li class="time">Full Time</li>
+    <li class="freelance">Freelance</li>
+    <li class="urgent">Urgent</li>
+    </ul>
+    <div class="price">$30 - $40 <b>/Per Hour</b></div>
+    </div>
+    <button class="bookmark-btn"><i class="ri-bookmark-line"></i></button>
+    </div>
+    </div>
+    <div class="col-lg-12">
+    <div class="recent-job-card box-shadow">
+    <div class="content">
+    <div class="recent-job-img">
+    <a href="job-details.html">
+    <img src="assets/images/recent-job/recent-job9.jpg" alt="Images">
+    </a>
+    </div>
+    <h3><a href="job-details.html">iOS Developer</a></h3>
+    <ul class="job-list1">
+    <li><i class="ri-briefcase-line"></i> IT Agency</li>
+    <li><i class="ri-time-line"></i> 1 Days Ago</li>
+    </ul>
+    <span><i class="ri-map-pin-line"></i> Los Angeles, CA</span>
+    </div>
+    <div class="job-sub-content">
+    <ul class="job-list2">
+    <li class="time">Full Time</li>
+    <li class="freelance">Freelance</li>
+    </ul>
+    <div class="price">$20 - $30 <b>/Per Hour</b></div>
+    </div>
+    <button class="bookmark-btn"><i class="ri-bookmark-line"></i></button>
+    </div>
+    </div>
+    <div class="col-lg-12">
+    <div class="recent-job-card box-shadow">
+    <div class="content">
+    <div class="recent-job-img">
+    <a href="job-details.html">
+     <img src="assets/images/recent-job/recent-job11.jpg" alt="Images">
+    </a>
+    </div>
+    <h3><a href="job-details.html">UI/UX Designer</a></h3>
+    <ul class="job-list1">
+    <li><i class="ri-briefcase-line"></i> Designer</li>
+    <li><i class="ri-time-line"></i> 7 Days Ago</li>
+    </ul>
+    <span><i class="ri-map-pin-line"></i> Los Angeles, CA</span>
+    </div>
+    <div class="job-sub-content">
+    <ul class="job-list2">
+    <li class="time">Full Time</li>
+    <li class="freelance">Freelance</li>
+    </ul>
+    <div class="price">$40 - $50 <b>/Per Hour</b></div>
+    </div>
+    <button class="bookmark-btn"><i class="ri-bookmark-line"></i></button>
+    </div>
+    </div>
+    <div class="col-lg-12">
+    <div class="recent-job-card box-shadow">
+    <div class="content">
+    <div class="recent-job-img">
+    <a href="job-details.html">
+    <img src="assets/images/recent-job/recent-job12.jpg" alt="Images">
+    </a>
+    </div>
+    <h3><a href="job-details.html">Creative Director</a></h3>
+    <ul class="job-list1">
+    <li><i class="ri-briefcase-line"></i> Automotive Jobs</li>
+    <li><i class="ri-time-line"></i> 2 Days Ago</li>
+    </ul>
+    <span><i class="ri-map-pin-line"></i> 320 Los Angeles, CA</span>
+    </div>
+    <div class="job-sub-content">
+    <ul class="job-list2">
+    <li class="time">Full Time</li>
+    <li class="freelance">Freelance</li>
+    </ul>
+    <div class="price">$35 - $40 <b>/Per Hour</b></div>
+    </div>
+    <button class="bookmark-btn"><i class="ri-bookmark-line"></i></button>
+    </div>
+    </div>
+    <div class="col-lg-12 col-md-12 text-center">
+    <div class="pagination-area">
+    <a href="job-listing.html" class="prev page-numbers">
+    <i class="ri-arrow-left-s-line"></i>
+    </a>
+    <span class="page-numbers current" aria-current="page">1</span>
+    <a href="job-listing.html" class="page-numbers">2</a>
+    <a href="job-listing.html" class="page-numbers">3</a>
+     <a href="job-listing.html" class="next page-numbers">
+    <i class="ri-arrow-right-s-line"></i>
+    </a>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div> -->
+
+
+            <div class="employers-cv-bg">
+              <div class="row align-items-center">
+                <div class="col-lg-8">
+                  <div class="employers-cv-content">
+                    <h2>Aider les entreprises à vous trouver</h2>
+                    <div class="bar"></div>
+                    <p>
+                      <!-- Advertise your jobs to millions of monthly users and
+                      search 15.8 million CV in our database. -->
+                      Trouver plus que 100 offres d'emplois dans nos bases de donnée
+                    </p>
+                  </div>
+                </div>
+                <div class="col-lg-4">
+                  <div class="optional-item">
+                    <a routerLink="/registerC" class="default-btn two border-radius-5"
+                      >Créer votre propre profil <i class="ri-user-3-line"></i
+                    ></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

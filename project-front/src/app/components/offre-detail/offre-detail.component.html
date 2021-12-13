@@ -1,0 +1,593 @@
+<div class="inner-banner">
+  <div class="container">
+    <div class="inner-title text-center">
+      <h3>{{ offre?.e.firstName }}</h3>
+      <ul>
+        <li>
+          <a href="index.html">Acceuil</a>
+        </li>
+        <li>Detail de l'offre</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="job-details-area pt-100 pb-70">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="find-jobs-card d-flex align-items-center box-shadow">
+          <div class="find-jobs-img">
+            <a href="company-details.html">
+              <img
+              src="http://localhost:8085/users/files/{{
+                offre?.e.image
+              }}"
+              alt="Images"
+            />
+            </a>
+          </div>
+          <div class="content">
+            <ul class="content-list">
+              <li class="time">Full Time</li>
+              <li class="freelance">Freelance</li>
+              <li class="internship">Internship</li>
+            </ul>
+            <h3>{{ offre?.titre }}</h3>
+            <ul class="content-list2">
+              <li class="list-one">{{ offre?.e.nom_entreprise }}</li>
+              <li class="list-two">
+                {{ offre?.region }} <i class="ri-time-line"></i>
+                {{ offre?.createdAt }}
+              </li>
+            </ul>
+            <ul class="content-list3">
+              <li>
+                <i class="ri-briefcase-line"></i> Categorie :
+                <b>{{ offre?.co.nom }}</b>
+              </li>
+              <li>
+                <i class="ri-map-pin-line"></i> Region :
+                <b>{{ offre?.region }}</b>
+              </li>
+              <li>
+                <i class="ri-currency-line"></i>salaire :
+                <b>{{ offre?.salaire }}</b>
+              </li>
+            </ul>
+          </div>
+          <div class="find-jobs-btn">
+            <a (click)="isconnect()" class="default-btn border-radius-5"
+              >Postuler Maintenant<i class="ri-send-plane-2-line"></i
+            ></a>
+          </div>
+          <button class="bookmark-btn"><i class="ri-bookmark-line"></i></button>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="job-details-widget-side pr-20">
+          <!-- <div class="job-details-widget">
+    <h3 class="title">Job Overview</h3>
+    <div class="bar"></div>
+    <ul class="job-details-category">
+    <li>Published On: <span>Vacancy</span></li>
+    <li>Vacancy: <span>01</span></li>
+    <li>Job Type: <span>Part Time</span></li>
+    <li>Experience: <span>3 Year(s)</span></li>
+    <li>Job Location: <span>New York, USA</span></li>
+    <li>Category: <span>Finance</span></li>
+    <li>Gender: <span>Both</span></li>
+    <li>Application Due: <span>05.05.2021</span></li>
+    </ul>
+    <div class="job-details-social">
+    <span>Share Post:</span>
+    <ul class="social-icon">
+    <li>
+    <a href="https://www.facebook.com/" target="_blank">
+    <i class="ri-facebook-fill"></i>
+    </a>
+    </li>
+    <li>
+    <a href="https://www.instagram.com/" target="_blank">
+     <i class="ri-instagram-fill"></i>
+    </a>
+    </li>
+    <li>
+    <a href="https://twitter.com/" target="_blank">
+    <i class="ri-twitter-fill"></i>
+    </a>
+    </li>
+    <li>
+    <a href="https://www.linkedin.com/" target="_blank">
+    <i class="ri-linkedin-fill"></i>
+    </a>
+    </li>
+    </ul>
+    </div>
+    </div> -->
+          <div class="job-details-widget">
+            <h3 class="title">Emplacement</h3>
+            <div class=""></div>
+            <div class="job-details-map">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3012.3531005543196!2d-73.6960694852179!3d40.973748329498996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c290dc165bb96f%3A0x63af0a238a20fe90!2s5%20North%20St%2C%20Rye%2C%20NY%2010580%2C%20USA!5e0!3m2!1sen!2sbd!4v1625385308899!5m2!1sen!2sbd"
+              ></iframe>
+            </div>
+          </div>
+          <div class="job-details-widget">
+            <h3 class="title">Type contrat</h3>
+            <div class=""></div>
+            <ul class="job-details-widget-tag">
+              <li>
+                <a href="tags.html" target="_blank">{{ offre?.typeContrat }}</a>
+              </li>
+            </ul>
+          </div>
+          <div class="job-details-widget">
+            <h3 class="title">Expérience</h3>
+            <div class=""></div>
+            <ul class="job-details-widget-tag">
+              <li>
+                <a href="tags.html" target="_blank">{{ offre?.experiences }}</a>
+              </li>
+            </ul>
+          </div>
+          <div class="job-details-widget">
+            <h3 class="title">Detail Entreprise</h3>
+            <div class=""></div>
+            <ul class="job-details-category">
+              <li>
+                Secteur d'activité : <span>{{ offre?.e.sect_activite }}</span>
+              </li>
+              <li>
+                Date de création : <span>{{ offre?.e.anneeCreation }}</span>
+              </li>
+              <li>
+                Societe : <span>{{ offre?.e.nom_entreprise }}</span>
+              </li>
+              <li>
+                Adresse : <span>{{ offre?.e.adresse }}</span>
+              </li>
+              <li>
+                site Web : <span>{{ offre?.e.siteWeb }}</span>
+              </li>
+              <li>
+                Email: <span>{{ offre?.e.email }}</span>
+              </li>
+            </ul>
+            <div class="job-details-social">
+              <span>Socials:</span>
+              <ul class="social-icon">
+                <li>
+                  <a href="https://www.facebook.com/" target="_blank">
+                    <i class="ri-facebook-fill"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.instagram.com/" target="_blank">
+                    <i class="ri-instagram-fill"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://twitter.com/" target="_blank">
+                    <i class="ri-twitter-fill"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.linkedin.com/" target="_blank">
+                    <i class="ri-linkedin-fill"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="job-details-web-btn">
+              <a href="index.html" target="_blank">{{ offre?.e.siteWeb }}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="job-details-content">
+          <div class="content mb-30">
+            <h3>Description</h3>
+            <div class=""></div>
+            <p>{{ offre?.description }}</p>
+            <p>à ajouter</p>
+          </div>
+          <div class="job-details-list">
+            <h3>Exigences</h3>
+            <div class=""></div>
+            <ul>
+              <li>
+                <p>{{ offre?.competence }}</p>
+              </li>
+            </ul>
+          </div>
+          <div class="job-details-list">
+            <h3>Connaissance_technique</h3>
+            <div class=""></div>
+            <ul>
+              <li>{{ offre?.connaissance_technique }}</li>
+            </ul>
+          </div>
+          <div class="article-social-icon">
+            <ul class="social-icon">
+              <li class="title">Partager le Post</li>
+              <li>
+                <a href="https://www.facebook.com/" target="_blank">
+                  <i class="ri-facebook-fill"></i>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/" target="_blank">
+                  <i class="ri-instagram-fill"></i>
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/" target="_blank">
+                  <i class="ri-twitter-fill"></i>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/" target="_blank">
+                  <i class="ri-linkedin-fill"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <section style="background-color: #eee">
+            <div class="container my-5 py-5">
+              <div class="row d-flex justify-content-center">
+                <div class="col-md-12 col-lg-10 col-xl-8">
+                  <div class="card">
+                    <div
+                      class="card-body"
+                      *ngFor="let comment of listcommentaire; let index = index"
+                    >
+                      <div class="d-block flex-start align-items">
+                        <img
+                          class="rounded-circle shadow-1-strong me-3"
+                          src="http://localhost:8085/users/files/{{
+                            comment.use.image
+                          }}"
+                          alt="avatar"
+                          width="60"
+                          height="60"
+                        />
+                        <!-- <img
+                          class="rounded-circle shadow-1-strong me-3"
+                          src="https://mdbootstrap.com/img/Photos/Avatars/img%20(19).jpg"
+                          alt="avatar"
+                          width="60"
+                          height="60"
+                        /> -->
+                        <div>
+                          <h6 class="fw-bold text-primary mb-1">
+                            {{ comment.use.firstName }}
+                          </h6>
+                          <p class="text-muted small mb-0">
+                            {{ comment.createdAt }}
+                          </p>
+
+                          <div>
+                            <p class="text-left">
+                              {{ comment.contenu }}
+                            </p>
+
+                            <div class="card-body" *ngFor="let rep of list">
+                              <img
+                              class="rounded-circle shadow-1-strong me-3"
+                              src="http://localhost:8085/users/files/{{
+                                rep.uuu.image
+                              }}"
+                              alt="avatar"
+                              width="60"
+                              height="60"
+                            />
+                              <h6 class="fw-bold text-primary mb-1">
+                                {{ rep.uuu.firstName }}
+                              </h6>
+                              <p class="text-muted small mb-0">
+                                {{ rep.createdAt }}
+                              </p>
+                              <p class="mt-3 mb-4 pb-2">
+                                {{ rep.contenu }}
+                              </p>
+                            </div>
+                            <p class="mt-3 mb-4 pb-2">
+                              <button
+                                class="btn-success"
+                                (click)="showcord2(comment.id, index)"
+                              >
+                                <i class="ri-reply-all-fill red"> </i>
+                              </button>
+                            </p>
+                          </div>
+
+                          <div class="row" *ngIf="show_coor2">
+                            <form
+                              id="contactForm"
+                              [formGroup]="commentaireForm"
+                            >
+                              <input
+                                class="form-control"
+                                id="textAreaExample"
+                                rows="4"
+                                style="background: #fff"
+                                name="contenu"
+                                formControlName="contenu"
+                              />
+                              <button
+                                class="btn-success"
+                                (click)="onSubmitRep(comment.id)"
+                              >
+                                Repondre
+                              </button>
+                              <label
+                                class="form-label"
+                                for="textAreaExample"
+                              ></label>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- <div class="small d-flex justify-content-start">
+                  <a href="#!" class="d-flex align-items-center me-3">
+                    <i class="far fa-thumbs-up me-2"></i>
+                    <p class="mb-0">Like</p>
+                  </a>
+                  <a href="#!" class="d-flex align-items-center me-3">
+                    <i class="far fa-comment-dots me-2"></i>
+                    <p class="mb-0">Comment</p>
+                  </a>
+                  <a href="#!" class="d-flex align-items-center me-3">
+                    <i class="fas fa-share me-2"></i>
+                    <p class="mb-0">Share</p>
+                  </a>
+                  </div> -->
+                    </div>
+                    <div
+                      class="card-footer py-3 border-0"
+                      style="background-color: #f8f9fa"
+                    >
+                      <div class="d-flex flex-start w-100">
+                        <img
+                          class="rounded-circle shadow-1-strong me-3"
+                          src="http://localhost:8085/users/files/{{
+                            userconnect.image
+                          }}"
+                          alt="avatar"
+                          width="40"
+                          height="40"
+                        />
+
+                        <div class="form-outline w-100">
+                          <!-- ajout form commentaire avec  name="contenu" formControlName="contenu" -->
+
+                          <form id="contactForm" [formGroup]="commentaireForm">
+                            <textarea
+                              class="form-control"
+                              id="textAreaExample"
+                              rows="4"
+                              style="background: #fff"
+                              name="contenu"
+                              formControlName="contenu"
+                            ></textarea>
+                            <label class="form-label" for="textAreaExample"
+                              >Commentaire</label
+                            >
+                          </form>
+                        </div>
+                      </div>
+                      <div class="float-end mt-2 pt-1">
+                        <button
+                          type="button"
+                          class="btn btn-primary btn-sm"
+                          (click)="onSubmit()"
+                        >
+                          Commentaire
+                        </button>
+                        <button
+                          type="button"
+                          class="btn btn-outline-primary btn-sm"
+                        >
+                          Cancel
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <div class="job-details-portfolio">
+            <h3>Gallerie photo</h3>
+            <div class="bar"></div>
+            <div class="row gallery-photo">
+              <div class="col-lg-3 col-6 col-md-3">
+                <div class="job-details-portfolio-img">
+                  <a href="assets/images/blog/blog-details-img2.jpg">
+                    <img
+                      src="assets/images/blog/blog-details-img2.jpg"
+                      alt="Images"
+                    />
+                  </a>
+                </div>
+              </div>
+              <div class="col-lg-3 col-6 col-md-3">
+                <div class="job-details-portfolio-img">
+                  <a href="assets/images/blog/blog-details-img3.jpg">
+                    <img
+                      src="assets/images/blog/blog-details-img3.jpg"
+                      alt="Images"
+                    />
+                  </a>
+                </div>
+              </div>
+              <div class="col-lg-3 col-6 col-md-3">
+                <div class="job-details-portfolio-img">
+                  <a href="assets/images/blog/blog-details-img4.jpg">
+                    <img
+                      src="assets/images/blog/blog-details-img4.jpg"
+                      alt="Images"
+                    />
+                  </a>
+                </div>
+              </div>
+              <div class="col-lg-3 col-6 col-md-3">
+                <div class="job-details-portfolio-img">
+                  <a href="assets/images/blog/blog-details-img5.jpg">
+                    <img
+                      src="assets/images/blog/blog-details-img5.jpg"
+                      alt="Images"
+                    />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- <h3>Video</h3>
+    <div class="bar"></div>
+     <div class="job-details-play">
+    <a href="https://www.youtube.com/watch?v=Zd00oIDAt60" class="play-btn">
+    <i class="ri-play-circle-line"></i>
+    </a>
+    </div> -->
+          <!-- <h3>Related Jobs</h3>
+    <div class="bar"></div>
+    <div class="col-lg-12">
+    <div class="recent-job-card box-shadow">
+    <div class="content">
+    <div class="recent-job-img">
+    <a href="company-details.html">
+    <img src="assets/images/recent-job/recent-job5.jpg" alt="Images">
+    </a>
+    </div>
+    <h3>Creative Director</h3>
+    <ul class="job-list1">
+    <li><i class="ri-briefcase-line"></i> Automotive Jobs</li>
+    <li><i class="ri-time-line"></i> 2 Hour Ago</li>
+    </ul>
+    <span><i class="ri-map-pin-line"></i> 105 San Antonio, TX</span>
+    </div>
+    <div class="job-sub-content">
+    <ul class="job-list2">
+    <li class="time">Full Time</li>
+    <li class="freelance">Freelance</li>
+    </ul>
+    <div class="price">$120 - $140 <b>/Per Week</b></div>
+    </div>
+    <button class="bookmark-btn"><i class="ri-bookmark-line"></i></button>
+    </div>
+    </div>
+    <div class="col-lg-12">
+    <div class="recent-job-card box-shadow">
+    <div class="content">
+    <div class="recent-job-img">
+    <a href="company-details.html">
+    <img src="assets/images/recent-job/recent-job6.jpg" alt="Images">
+    </a>
+    </div>
+    <h3>General Ledger Accountant</h3>
+    <ul class="job-list1">
+    <li><i class="ri-briefcase-line"></i> Accounting &amp; Finance</li>
+    <li><i class="ri-time-line"></i> 1 Day Ago</li>
+    </ul>
+    <span><i class="ri-map-pin-line"></i> 320 Los Angeles, CA</span>
+    </div>
+    <div class="job-sub-content">
+    <ul class="job-list2">
+    <li class="time">Full Time</li>
+    <li class="freelance">Freelance</li>
+    <li class="internship">Internship</li>
+    </ul>
+    <div class="price">$120 - $140 <b>/Per Week</b></div>
+    </div>
+    <button class="bookmark-btn"><i class="ri-bookmark-line"></i></button>
+    </div>
+    </div>
+    <div class="col-lg-12">
+    <div class="recent-job-card box-shadow">
+    <div class="content">
+    <div class="recent-job-img">
+    <a href="company-details.html">
+    <img src="assets/images/recent-job/recent-job7.jpg" alt="Images">
+    </a>
+    </div>
+    <h3>Finance Manager &amp; Health </h3>
+    <ul class="job-list1">
+    <li><i class="ri-briefcase-line"></i> Medical &amp; Health</li>
+    <li><i class="ri-time-line"></i> 5 Days Ago</li>
+    </ul>
+    <span><i class="ri-map-pin-line"></i> 320 Atlanta, GA</span>
+    </div>
+    <div class="job-sub-content">
+    <ul class="job-list2">
+    <li class="time">Full Time</li>
+    <li class="freelance">Freelance</li>
+    <li class="urgent">Urgent</li>
+    </ul>
+    <div class="price">$30 - $40 <b>/Per Hour</b></div>
+    </div>
+    <button class="bookmark-btn"><i class="ri-bookmark-line"></i></button>
+    </div>
+    </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Form modal ajouter formation -->
+<!--
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">
+      Ajouter votre condidature
+    </h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="candidatureForm">
+      <div class="form-group">
+        <label>Votre email </label>
+        <input formControlName="email" class="form-control" type="email" />
+      </div>
+      <div class="form-group col-md-6">
+        <label for="exampleInputPassword1">Ajouter votre cv </label>
+        <input
+          type="file"
+          (change)="handleFileInput($event)"
+          name="file"
+          class="form-control"
+          id="exampleRepeatPassword"
+          placeholder="file"
+        />
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="submit"
+      class="btn btn-outline-dark"
+      (click)="addCandidature(); modal.close('Save click')"
+    >
+      Save
+    </button>
+  </div>
+</ng-template>
+
+<!-- <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button> -->
+
+<hr />
+
+<pre>{{ closeResult }}</pre>
+-->

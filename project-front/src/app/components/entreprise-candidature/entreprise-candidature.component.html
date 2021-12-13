@@ -1,0 +1,244 @@
+<br />
+<br />
+<br />
+<br />
+<br />
+<div class="breadcrumb-area">
+  <h1>Candidatures</h1>
+  <ol class="breadcrumb">
+    <li class="item"><a href="dashboard.html">Listes des offres</a></li>
+    <li class="item">Liste des Candidatures</li>
+  </ol>
+</div>
+<div class="all-applicants-box" *ngFor="let candidature of listcandidature">
+  <h2></h2>
+  <div class="row">
+    <div class="col-lg-6 col-md-12">
+      <div class="single-applicants-card width">
+        <div class="image">
+          <a href="candidates-details.html">
+            <img
+              src="http://localhost:8085/users/files/{{ candidature.ca.image }}"
+              alt="Images"
+            />
+          </a>
+        </div>
+        <div class="content">
+          <h3>
+            <a [routerLink]="['/detail', candidature.ca.id]"
+              >{{ candidature.ca.firstName }} {{ candidature.ca.lastName }}</a
+            >
+          </h3>
+          <span>{{ candidature.email }}</span>
+          <ul class="job-info">
+            <li>
+              <i class="ri-map-pin-line"></i> {{ candidature.ca.location }}
+            </li>
+            <li>
+              <i class="ri-time-line"></i>Date de dépot :
+              {{ candidature.createdAt }}
+            </li>
+            <li>
+              <span>
+                <a
+                [routerLink]="['/pdf', candidature.url]"
+                  target="_blank"
+                  class="download-btn"
+                  >Consulter CV <i class="ri-file-download-line"></i
+                ></a>
+              </span>
+            </li>
+            <li>
+              <div>
+
+                <span>
+                  <a
+                    href="http://localhost:8085/users/filealltypes/{{
+                      candidature.url
+                    }}"
+                    target="_blank"
+                    class="download-btn"
+                    >    Télécharger CV <i class="ri-file-download-line"></i
+                  ></a>
+                </span>
+                <li>
+                  <i class="ri-map-pin-line"></i>Note : {{ candidature.note }}
+                </li>
+              </div>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <div>
+                <a href="">{{ candidature.etat }}</a>
+              </div>
+            </li>
+          </ul>
+          <button (click)="open(content,candidature.id)" type="button" class="btn btn-warning">
+            Planifier un entretien
+          </button>
+          <button [routerLink]="['/listentretien',candidature.id]" type="button" class="btn btn-light">
+            Consulter
+          </button>
+
+          <div class="applicants-footer">
+            <ul class="option-list">
+              <li>
+                <button
+                  class="option-btn d-inline-block"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title=""
+                  type="button"
+                  data-bs-original-title="View Aplication"
+                  aria-label="View Aplication"
+                >
+                  <i class="ri-eye-line"></i>
+                </button>
+              </li>
+              <li>
+                <button
+                  (click)="updateEtat1(candidature.id)"
+                  class="option-btn d-inline-block"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title=""
+                  type="button"
+                  data-bs-original-title="Approve Aplication"
+                  aria-label="Approve Aplication"
+                >
+                  <i class="ri-check-line"></i>
+                </button>
+              </li>
+              <li>
+                <button
+                  (click)="updateEtat2(candidature.id)"
+                  class="option-btn d-inline-block"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title=""
+                  type="button"
+                  data-bs-original-title="Reject Aplication"
+                  aria-label="Reject Aplication"
+                >
+                  <i class="ri-close-line"></i>
+                </button>
+              </li>
+              <li>
+                <button
+                  class="option-btn d-inline-block"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title=""
+                  type="button"
+                  data-bs-original-title="Delete Aplication"
+                  aria-label="Delete Aplication"
+                >
+                  <i class="ri-delete-bin-line"></i>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="single-applicants-card width" *ngFor="let entretien of listentretien">
+        <h6>Date Entretien : {{ entretien.dateEntretien }}</h6>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Form modal envoyer mail -->
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Envoyer un mail</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="emailForm" (ngSubmit)="onSubmit()">
+      <div class="form-row">
+        <div class="form-group col-5">
+          <label> à : </label>
+          <input
+            placeholder="Destinataires"
+            type="text"
+            formControlName="to"
+            name="to"
+            class="form-control"
+          />
+        </div>
+        <div class="form-group col-5">
+          <label>Objet </label>
+          <input
+            placeholder="Objet"
+            type="text"
+            formControlName="subject"
+            name="subject"
+            class="form-control"
+          />
+        </div>
+
+        <div class="form-group col-5">
+          <label>Url entretien </label>
+          <input
+            placeholder="url entretien"
+            type="text"
+            formControlName="url"
+            name="url"
+            class="form-control"
+          />
+        </div>
+        <div class="form-group col-5">
+          <label>Date </label>
+          <input
+            placeholder="date"
+            type="date"
+            formControlName="date"
+            name="date"
+            class="form-control"
+          />
+        </div>
+        <div class="form-group col-5">
+          <label>Heure/min </label>
+          <input
+            placeholder="Heure:min"
+            type="text"
+            formControlName="time"
+            name="time"
+            class="form-control"
+          />
+        </div>
+      </div>
+      <div class="form-group">
+        <label>*</label>
+        <textarea
+          name="content"
+          formControlName="content"
+          class="form-control"
+          cols="30"
+          rows="5"
+          required=""
+          data-error="Write your Job Description"
+        ></textarea>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="submit"
+    class="btn btn-outline-dark"
+    (click)="onSubmit(); modal.close('Save click')">Envoyer</button>
+  </div>
+</ng-template>
+
+<!-- <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button> -->
+
+<hr />
+
+<pre>{{ closeResult }}</pre>

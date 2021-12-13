@@ -1,0 +1,869 @@
+
+<br>
+<br>
+<br>
+<br>
+
+<div class="manage-jobs-box">
+  <h3>Gestion de test</h3>
+  <div class="bar"></div>
+  <div class="manage-jobs-table table-responsive">
+    <br />
+    <button (click)="open(content)"
+
+      class="btn btn-success"
+      data-bs-toggle="tooltip"
+      data-bs-placement="top"
+      title=""
+      type="button"
+      data-bs-original-title="View offre"
+      aria-label="View offre"
+    >
+      Créer un nouveau test
+      <i class=""></i>
+    </button>
+
+    <br />
+    <br />
+    <br />
+
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Titre</th>
+          <th>Description</th>
+          <th>Nombre de questions</th>
+          <th>Note sur :</th>
+          <th>Gérer Questions</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let examen of listExamen">
+          <td>
+            <h5>{{ examen.title }}</h5>
+            <span><i class=""></i> </span>
+          </td>
+
+          <td>
+            <p>{{ examen.description }}</p>
+          </td>
+          <td>
+            {{ examen.numberOfQuestions }}
+          </td>
+          <td>{{ examen.maxMarks }}</td>
+          <td>
+            <div class="status">
+              <i class="ri-add-circle-line"></i>
+              <button (click)="open1(content1,examen)"
+                class="btn btn-blak"
+                data-bs-toggle="tooltip"
+                data-bs-placement="top"
+                title=""
+                type="button"
+                data-bs-original-title="View offre"
+                aria-label="View offre"
+              >
+                Ajouter
+              </button>
+            </div>
+          </td>
+          <td>
+            <ul class="option-list">
+              <li>
+                <button [routerLink]="['/detailexamen', examen.exId]"
+                  class="option-btn d-inline-block"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title=""
+                  type="button"
+                  data-bs-original-title="View Aplication"
+                  aria-label="View Aplication"
+                >
+                  <i class="ri-eye-line"></i>
+                </button>
+              </li>
+              <!-- <li>
+                <button
+                  class="option-btn d-inline-block"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title=""
+                  type="button"
+                  data-bs-original-title="Approve Aplication"
+                  aria-label="Approve Aplication"
+                >
+                  <i class="ri-check-line"></i>
+                </button>
+              </li>
+              <li>
+                <button
+                  class="option-btn d-inline-block"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title=""
+                  type="button"
+                  data-bs-original-title="Reject Aplication"
+                  aria-label="Reject Aplication"
+                >
+                  <i class="ri-close-line"></i>
+                </button>
+              </li> -->
+              <li>
+                <button   (click) = "deleteExam(examen)"
+                  class="option-btn d-inline-block"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title=""
+                  type="button"
+                  data-bs-original-title="Supprimer"
+                  aria-label="Supprimer "
+                >
+                  <i class="ri-delete-bin-line"></i>
+                </button>
+              </li>
+            </ul>
+          </td>
+        </tr>
+        <!-- <tr>
+          <td>
+            <h5>Android Developer</h5>
+            <span
+              ><i class="ri-map-pin-line"></i> 32, Wales Street, New York,
+              USA</span
+            >
+          </td>
+          <td><a href="dashboard-applicants.html">5+ Applied</a></td>
+          <td>November 27, 2020, to December 25, 2021</td>
+          <td>
+            <div class="status">Active</div>
+          </td>
+          <td>
+            <ul class="option-list">
+              <li>
+                <button
+                  class="option-btn d-inline-block"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title=""
+                  type="button"
+                  data-bs-original-title="View Aplication"
+                  aria-label="View Aplication"
+                >
+                  <i class="ri-eye-line"></i>
+                </button>
+              </li>
+              <li>
+                <button
+                  class="option-btn d-inline-block"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title=""
+                  type="button"
+                  data-bs-original-title="Approve Aplication"
+                  aria-label="Approve Aplication"
+                >
+                  <i class="ri-check-line"></i>
+                </button>
+              </li>
+              <li>
+                <button
+                  class="option-btn d-inline-block"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title=""
+                  type="button"
+                  data-bs-original-title="Reject Aplication"
+                  aria-label="Reject Aplication"
+                >
+                  <i class="ri-close-line"></i>
+                </button>
+              </li>
+              <li>
+                <button
+                  class="option-btn d-inline-block"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title=""
+                  type="button"
+                  data-bs-original-title="Delete Aplication"
+                  aria-label="Delete Aplication"
+                >
+                  <i class="ri-delete-bin-line"></i>
+                </button>
+              </li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <h5>Senior Manager</h5>
+            <span
+              ><i class="ri-map-pin-line"></i> 32, Wales Street, New York,
+              USA</span
+            >
+          </td>
+          <td><a href="dashboard-applicants.html">5+ Applied</a></td>
+          <td>November 27, 2020, to December 25, 2021</td>
+          <td>
+            <div class="status">Active</div>
+          </td>
+          <td>
+            <ul class="option-list">
+              <li>
+                <button
+                  class="option-btn d-inline-block"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title=""
+                  type="button"
+                  data-bs-original-title="View Aplication"
+                  aria-label="View Aplication"
+                >
+                  <i class="ri-eye-line"></i>
+                </button>
+              </li>
+              <li>
+                <button
+                  class="option-btn d-inline-block"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title=""
+                  type="button"
+                  data-bs-original-title="Approve Aplication"
+                  aria-label="Approve Aplication"
+                >
+                  <i class="ri-check-line"></i>
+                </button>
+              </li>
+              <li>
+                <button
+                  class="option-btn d-inline-block"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title=""
+                  type="button"
+                  data-bs-original-title="Reject Aplication"
+                  aria-label="Reject Aplication"
+                >
+                  <i class="ri-close-line"></i>
+                </button>
+              </li>
+              <li>
+                <button
+                  class="option-btn d-inline-block"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title=""
+                  type="button"
+                  data-bs-original-title="Delete Aplication"
+                  aria-label="Delete Aplication"
+                >
+                  <i class="ri-delete-bin-line"></i>
+                </button>
+              </li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <h5>Digital Marketer</h5>
+            <span
+              ><i class="ri-map-pin-line"></i> 32, Wales Street, New York,
+              USA</span
+            >
+          </td>
+          <td><a href="dashboard-applicants.html">5+ Applied</a></td>
+          <td>November 27, 2020, to December 25, 2021</td>
+          <td>
+            <div class="status">Active</div>
+          </td>
+          <td>
+            <ul class="option-list">
+              <li>
+                <button
+                  class="option-btn d-inline-block"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title=""
+                  type="button"
+                  data-bs-original-title="View Aplication"
+                  aria-label="View Aplication"
+                >
+                  <i class="ri-eye-line"></i>
+                </button>
+              </li>
+              <li>
+                <button
+                  class="option-btn d-inline-block"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title=""
+                  type="button"
+                  data-bs-original-title="Approve Aplication"
+                  aria-label="Approve Aplication"
+                >
+                  <i class="ri-check-line"></i>
+                </button>
+              </li>
+              <li>
+                <button
+                  class="option-btn d-inline-block"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title=""
+                  type="button"
+                  data-bs-original-title="Reject Aplication"
+                  aria-label="Reject Aplication"
+                >
+                  <i class="ri-close-line"></i>
+                </button>
+              </li>
+              <li>
+                <button
+                  class="option-btn d-inline-block"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title=""
+                  type="button"
+                  data-bs-original-title="Delete Aplication"
+                  aria-label="Delete Aplication"
+                >
+                  <i class="ri-delete-bin-line"></i>
+                </button>
+              </li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <h5>Web Developer</h5>
+            <span
+              ><i class="ri-map-pin-line"></i> 32, Wales Street, New York,
+              USA</span
+            >
+          </td>
+          <td><a href="dashboard-applicants.html">5+ Applied</a></td>
+          <td>November 27, 2020, to December 25, 2021</td>
+          <td>
+            <div class="status">Active</div>
+          </td>
+          <td>
+            <ul class="option-list">
+              <li>
+                <button
+                  class="option-btn d-inline-block"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title=""
+                  type="button"
+                  data-bs-original-title="View Aplication"
+                  aria-label="View Aplication"
+                >
+                  <i class="ri-eye-line"></i>
+                </button>
+              </li>
+              <li>
+                <button
+                  class="option-btn d-inline-block"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title=""
+                  type="button"
+                  data-bs-original-title="Approve Aplication"
+                  aria-label="Approve Aplication"
+                >
+                  <i class="ri-check-line"></i>
+                </button>
+              </li>
+              <li>
+                <button
+                  class="option-btn d-inline-block"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title=""
+                  type="button"
+                  data-bs-original-title="Reject Aplication"
+                  aria-label="Reject Aplication"
+                >
+                  <i class="ri-close-line"></i>
+                </button>
+              </li>
+              <li>
+                <button
+                  class="option-btn d-inline-block"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title=""
+                  type="button"
+                  data-bs-original-title="Delete Aplication"
+                  aria-label="Delete Aplication"
+                >
+                  <i class="ri-delete-bin-line"></i>
+                </button>
+              </li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <h5>UI/UX Designer</h5>
+            <span
+              ><i class="ri-map-pin-line"></i> 32, Wales Street, New York,
+              USA</span
+            >
+          </td>
+          <td><a href="dashboard-applicants.html">5+ Applied</a></td>
+          <td>November 27, 2020, to December 25, 2021</td>
+          <td>
+            <div class="status">Active</div>
+          </td>
+          <td>
+            <ul class="option-list">
+              <li>
+                <button
+                  class="option-btn d-inline-block"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title=""
+                  type="button"
+                  data-bs-original-title="View Aplication"
+                  aria-label="View Aplication"
+                >
+                  <i class="ri-eye-line"></i>
+                </button>
+              </li>
+              <li>
+                <button
+                  class="option-btn d-inline-block"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title=""
+                  type="button"
+                  data-bs-original-title="Approve Aplication"
+                  aria-label="Approve Aplication"
+                >
+                  <i class="ri-check-line"></i>
+                </button>
+              </li>
+              <li>
+                <button
+                  class="option-btn d-inline-block"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title=""
+                  type="button"
+                  data-bs-original-title="Reject Aplication"
+                  aria-label="Reject Aplication"
+                >
+                  <i class="ri-close-line"></i>
+                </button>
+              </li>
+              <li>
+                <button
+                  class="option-btn d-inline-block"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title=""
+                  type="button"
+                  data-bs-original-title="Delete Aplication"
+                  aria-label="Delete Aplication"
+                >
+                  <i class="ri-delete-bin-line"></i>
+                </button>
+              </li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <h5>Tax Manager</h5>
+            <span
+              ><i class="ri-map-pin-line"></i> 32, Wales Street, New York,
+              USA</span
+            >
+          </td>
+          <td><a href="dashboard-applicants.html">5+ Applied</a></td>
+          <td>November 27, 2020, to December 25, 2021</td>
+          <td>
+            <div class="status">Active</div>
+          </td>
+          <td>
+            <ul class="option-list">
+              <li>
+                <button
+                  class="option-btn d-inline-block"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title=""
+                  type="button"
+                  data-bs-original-title="View Aplication"
+                  aria-label="View Aplication"
+                >
+                  <i class="ri-eye-line"></i>
+                </button>
+              </li>
+              <li>
+                <button
+                  class="option-btn d-inline-block"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title=""
+                  type="button"
+                  data-bs-original-title="Approve Aplication"
+                  aria-label="Approve Aplication"
+                >
+                  <i class="ri-check-line"></i>
+                </button>
+              </li>
+              <li>
+                <button
+                  class="option-btn d-inline-block"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title=""
+                  type="button"
+                  data-bs-original-title="Reject Aplication"
+                  aria-label="Reject Aplication"
+                >
+                  <i class="ri-close-line"></i>
+                </button>
+              </li>
+              <li>
+                <button
+                  class="option-btn d-inline-block"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title=""
+                  type="button"
+                  data-bs-original-title="Delete Aplication"
+                  aria-label="Delete Aplication"
+                >
+                  <i class="ri-delete-bin-line"></i>
+                </button>
+              </li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <h5>Senior Data Engineer</h5>
+            <span
+              ><i class="ri-map-pin-line"></i> 32, Wales Street, New York,
+              USA</span
+            >
+          </td>
+          <td><a href="dashboard-applicants.html">5+ Applied</a></td>
+          <td>November 27, 2020, to December 25, 2021</td>
+          <td>
+            <div class="status">Active</div>
+          </td>
+          <td>
+            <ul class="option-list">
+              <li>
+                <button
+                  class="option-btn d-inline-block"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title=""
+                  type="button"
+                  data-bs-original-title="View Aplication"
+                  aria-label="View Aplication"
+                >
+                  <i class="ri-eye-line"></i>
+                </button>
+              </li>
+              <li>
+                <button
+                  class="option-btn d-inline-block"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title=""
+                  type="button"
+                  data-bs-original-title="Approve Aplication"
+                  aria-label="Approve Aplication"
+                >
+                  <i class="ri-check-line"></i>
+                </button>
+              </li>
+              <li>
+                <button
+                  class="option-btn d-inline-block"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title=""
+                  type="button"
+                  data-bs-original-title="Reject Aplication"
+                  aria-label="Reject Aplication"
+                >
+                  <i class="ri-close-line"></i>
+                </button>
+              </li>
+              <li>
+                <button
+                  class="option-btn d-inline-block"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title=""
+                  type="button"
+                  data-bs-original-title="Delete Aplication"
+                  aria-label="Delete Aplication"
+                >
+                  <i class="ri-delete-bin-line"></i>
+                </button>
+              </li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <h5>Shopify Developer</h5>
+            <span
+              ><i class="ri-map-pin-line"></i> 32, Wales Street, New York,
+              USA</span
+            >
+          </td>
+          <td><a href="dashboard-applicants.html">5+ Applied</a></td>
+          <td>November 27, 2020, to December 25, 2021</td>
+          <td>
+            <div class="status">Active</div>
+          </td>
+          <td>
+            <ul class="option-list">
+              <li>
+                <button
+                  class="option-btn d-inline-block"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title=""
+                  type="button"
+                  data-bs-original-title="View Aplication"
+                  aria-label="View Aplication"
+                >
+                  <i class="ri-eye-line"></i>
+                </button>
+              </li>
+              <li>
+                <button
+                  class="option-btn d-inline-block"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title=""
+                  type="button"
+                  data-bs-original-title="Approve Aplication"
+                  aria-label="Approve Aplication"
+                >
+                  <i class="ri-check-line"></i>
+                </button>
+              </li>
+              <li>
+                <button
+                  class="option-btn d-inline-block"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title=""
+                  type="button"
+                  data-bs-original-title="Reject Aplication"
+                  aria-label="Reject Aplication"
+                >
+                  <i class="ri-close-line"></i>
+                </button>
+              </li>
+              <li>
+                <button
+                  class="option-btn d-inline-block"
+                  data-bs-toggle="tooltip"
+                  data-bs-placement="top"
+                  title=""
+                  type="button"
+                  data-bs-original-title="Delete Aplication"
+                  aria-label="Delete Aplication"
+                >
+                  <i class="ri-delete-bin-line"></i>
+                </button>
+              </li>
+            </ul>
+          </td>
+        </tr> -->
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<!-- Form modal ajouter examen -->
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Nouveau test</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form id="contactForm" novalidate="true" [formGroup]="examForm" (ngSubmit)="onSubmit()" >
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="form-group">
+            <label>Titre de test*</label>
+            <input name="title" formControlName="title"
+              type="text"
+              class="form-control"
+              required=""
+              data-error="Please Enter Job title"
+            />
+          </div>
+        </div>
+        <div class="col-lg-12 col-md-12">
+          <div class="form-group">
+            <label>Déscription </label>
+            <textarea name="description" formControlName="description"
+              class="form-control"
+              cols="30"
+              rows="5"
+              required=""
+              data-error="Write your Job Description"
+            ></textarea>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6">
+          <div class="form-group select-group">
+            <label>Note maximale *</label>
+            <input name="maxMarks" formControlName="maxMarks"
+              type="text"
+              class="form-control"
+              required=""
+              data-error="Please Enter Job title"
+            />
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6">
+          <div class="form-group select-group">
+            <label>Nombre de Question*</label>
+            <input name="numberOfQuestions" formControlName="numberOfQuestions"
+              type="text"
+              class="form-control"
+              required=""
+              data-error="Please Enter Job title"
+            />
+          </div>
+        </div>
+
+
+
+      </div>
+      <div class="row">
+        <!-- <div class="col-lg-6 col-md-6">
+          <div class="form-group">
+            <label>Company Name</label>
+            <input class="form-control" type="text" name="Company" />
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6">
+          <div class="form-group">
+            <label>Company Business</label>
+            <input
+              class="form-control"
+              type="text"
+              name="Company Business"
+            />
+          </div>
+        </div> -->
+
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="submit"
+      class="btn btn-outline-dark"
+      (click)="onSubmit(); modal.close('Save click')"
+    >
+      Save
+    </button>
+  </div>
+</ng-template>
+
+<!-- <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button> -->
+
+<hr />
+
+<pre>{{ closeResult }}</pre>
+
+
+<!-- Form modal ajouter  -->
+
+<ng-template #content1 let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Ajouter une question</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form  [formGroup]="questionForm" (ngSubmit)="onSubmit1()">
+
+        <div class="form-group">
+          <label> Question*  </label>
+          <input type="text" name="content" formControlName="content" class="form-control" />
+        </div>
+
+
+      <div class="form-group">
+        <label>Option 1  </label>
+        <input
+          type="text"
+          formControlName="option1" name="option1"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+        <label>Option 2  </label>
+        <input
+          type="text"
+          formControlName="option2" name="option2"
+          class="form-control"
+        />
+      </div>
+      <div class="form-group">
+        <label>Option 3  </label>
+        <input type="text"  formControlName="option3" name="option3"
+        class="form-control" />
+      </div>
+
+      <div class="form-group">
+        <label>Option 4 </label>
+        <input type="text"  name="option4" formControlName="option4" class="form-control" />
+      </div>
+      <div class="form-group">
+        <label>Réponse</label>
+        <input type="text" name="answer" formControlName="answer" class="form-control" />
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="submit"
+      class="btn btn-outline-dark"
+      (click)="onSubmit1(); modal.close('Save click')"
+    >
+      Save
+    </button>
+  </div>
+</ng-template>
+
+<!-- <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button> -->
+
+<hr />
+
+<pre>{{ closeResult }}</pre>

@@ -1,0 +1,302 @@
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<div class="user-area pt-100 pb-70">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="user-all-form">
+          <div class="contact-form">
+            <h3>Postuler à cette offre</h3>
+            <div class="bar"></div>
+            <form id="contactForm" [formGroup]="candidatureForm">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="form-group">
+                    <label>Votre email</label>
+                    <input
+                      name="email"
+                      formControlName="email"
+                      class="form-control"
+                      type="email"
+                      type="text"
+                      class="form-control"
+                      required=""
+                      data-error="SVP entrer votre email"
+                    />
+                  </div>
+                </div>
+
+                <div class="form-group col-md-6">
+                  <label for="exampleInputPassword1">Ajouter votre cv</label>
+                  <input
+                    type="file"
+                    (change)="handleFileInput($event)"
+                    name="file"
+                    class="form-control"
+                    id="exampleRepeatPassword"
+                    placeholder="ajouter un cv"
+                  />
+                </div>
+
+                <!-- <div class="col-12">
+                  <div class="sub-title">
+                    <span>Or</span>
+                  </div>
+                </div> -->
+                <!-- <div class="login-with-account">
+                  <ul>
+                    <li>
+                      <a href="https://www.facebook.com/" target="_blank">
+                        <i class="ri-facebook-line"></i>
+                        Login with Facebook
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://www.google.com/" target="_blank">
+                        <i class="ri-google-line"></i>
+                        Login with Google
+                      </a>
+                    </li>
+                  </ul>
+                </div> -->
+              </div>
+              <h3>Passer ce test afin de finaliser votre candidature</h3>
+
+              <div class="d-flex align-items-center pt-3">
+                <button class="btn btn-success" (click)="showcord2()">
+                  Commencer le test
+                </button>
+              </div>
+              <br />
+              <div class="row" *ngIf="show_coor2">
+                <p>{{ timeLeft }} Seconds Left....</p>
+                <br />
+                <br />
+                <br />
+                <div id="accordion">
+                  <div class="card">
+                    <div class="card-header" id="headingOne">
+                      <h5 class="mb-0">
+                        <button
+                          *ngFor="let examen of listrandomExamen"
+                          data-toggle="collapse"
+                          data-target="#collapseOne"
+                          aria-expanded="true"
+                          aria-controls="collapseOne"
+                        >
+                          {{ examen.title }}
+                        </button>
+                      </h5>
+                    </div>
+
+                    <div
+                      class="question ml-sm-5 pl-sm-5 pt-2"
+                      aria-labelledby="headingOne"
+                      data-parent="#accordion"
+                    >
+                      <div class="card-body">
+                        <div
+                          class="list-group"
+                          *ngFor="let question of listQuestion"
+                        >
+                          <a
+                            href="#"
+                            class="
+                              list-group-item list-group-item-action
+                              active
+                            "
+                          >
+                            {{ question.content }}
+                          </a>
+                          <label class="options"
+                            >{{ question.option1 }}
+                            <input
+                              type="radio"
+                              name="{{ question.quesId }}"
+                              ng-model="question.answer"
+                              [value]="question.option1"
+                              (change)="onchange($event, question.answer)"
+                            />
+                            <span class="checkmark"></span>
+                          </label>
+                          <label class="options"
+                            >{{ question.option2 }}
+                            <input
+                              type="radio"
+                              name="{{ question.quesId }}"
+                              ng-model="question.answer"
+                              [value]="question.option2"
+                              (change)="onchange($event, question.answer)"
+                            />
+                            <span class="checkmark"></span>
+                          </label>
+                          <label class="options"
+                            >{{ question.option3 }}
+                            <input
+                              type="radio"
+                              name="{{ question.quesId }}"
+                              ng-model="question.answer"
+                              [value]="question.option3"
+                              (change)="onchange($event, question.answer)"
+                            />
+                            <span class="checkmark"></span>
+                          </label>
+                          <label class="options"
+                            >{{ question.option4 }}
+                            <input
+                              type="radio"
+                              name="{{ question.quesId }}"
+                              ng-model="question.answer"
+                              [value]="question.option4"
+                              (change)="onchange($event, question.answer)"
+                            />
+                            <span class="checkmark"></span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- <div class="col-lg-12 col-md-12 text-center">
+                    <button type="submit" (click)="submitExam()" class="default-btn">
+                      Test
+                    </button>
+                  </div> -->
+                  <!-- <div class="card">
+                    <div class="card-header" id="headingTwo">
+                      <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                          Collapsible Group Item #2
+                        </button>
+                      </h5>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                      <div class="card-body">
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="card-header" id="headingThree">
+                      <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                          Collapsible Group Item #3
+                        </button>
+                      </h5>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                      <div class="card-body">
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                      </div>
+                    </div>
+                  </div>
+                </div> -->
+                </div>
+              </div>
+              <div class="col-lg-12 col-md-12 text-center">
+                <button
+                  type="submit"
+                  class="btn btn-success"
+                  (click)="addCandidature()"
+                >
+                  Enregistrer
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="d-flex align-items-center pt-3">
+  <button class="btn btn-success" (click)="showcord2()">Envoyer candidature</button>
+</div>
+<br>
+<br>
+
+<div class="user-area pt-100 pb-70" *ngIf="show_coor2">
+<div class="container">
+  <div class="row">
+
+    <div class="col-lg-6">
+      <div class="user-all-form">
+        <div class="contact-form">
+          <h3>Créer un compte</h3>
+          <div class="bar"></div>
+          <form  id="contactForm">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="form-group">
+                  <label>Nom</label>
+                  <input name="firstName" formControlName="firstName"
+                    type="text"
+                    class="form-control"
+                    required=""
+                    data-error="Please Enter Your Name"
+                  />
+                </div>
+              </div>
+              <div class="col-lg-12">
+                <div class="form-group">
+                  <label>Prenom</label>
+                  <input  name="lastName" formControlName="lastName"
+                    type="text"
+                    class="form-control"
+                    required=""
+                    data-error="Please enter Email"
+                  />
+                </div>
+              </div>
+             </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div> -->
+
+<!-- <div class="container mt-sm-5 my-1" class="fa fa-500px" aria-hidden="true">
+  <h1 class="font-weight-bolder" *ngFor="let examen of listrandomExamen">
+    {{ examen.title }}
+  </h1>
+
+  <div
+    class="question ml-sm-5 pl-sm-5 pt-2"
+    *ngFor="let question of listQuestion;"
+  >
+    <div class="py-2 h5">
+      <b>{{question.content}}</b>
+    </div>
+    <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
+      <label class="options"
+        >{{question.option1}} <input type="radio" name="radio" />
+        <span class="checkmark"></span>
+      </label>
+      <label class="options"
+        >{{question.option2}} <input type="radio" name="radio" />
+        <span class="checkmark"></span>
+      </label>
+      <label class="options"
+        >{{question.option3}} <input type="radio" name="radio" />
+        <span class="checkmark"></span>
+      </label>
+      <label class="options"
+        >{{question.option4}} <input type="radio" name="radio" />
+        <span class="checkmark"></span>
+      </label>
+    </div>
+  </div>
+
+  <div class="d-flex align-items-center pt-3">
+    <!-- <div id="prev"> <button class="btn btn-primary">Previous</button> </div>
+      <div class="ml-auto mr-sm-5"> <button class="btn btn-success">Next</button> </div> -->
+<!-- </div>
+</div> -->
+-->

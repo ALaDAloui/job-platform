@@ -1,0 +1,269 @@
+<div class="post-job-area pt-100 pb-70">
+  <div class="container">
+    <div class="post-job-form">
+      <h2>Ajouter une offre</h2>
+      <div class="bar"></div>
+      <div class="contact-form">
+        <h3>Information basique</h3>
+        <form id="contactForm" novalidate="true" [formGroup]="ajoutoffreForm" (ngSubmit)="onSubmit()">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="form-group">
+                <label>Titre de l'offre*</label>
+                <input name="titre" formControlName="titre"
+                  type="text"
+                  class="form-control"
+                  required=""
+                  data-error="Please Enter Job title"
+                />
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+              <div class="form-group select-group">
+                <label>Categorie*</label>
+                <select class="form-select form-control" name="CATEGORIE_ID" formControlName="CATEGORIE_ID">
+                  <option  *ngFor="let categorie of listCategorie" [value]="categorie.id">
+                    {{ categorie.nom }}</option>
+
+                </select>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+              <div class="form-group select-group">
+                <label>Type d'emploi*</label>
+                <select class="form-select form-control" name="typeemploi" formControlName="typeemploi">
+                  <option value="Full Time">Full Time</option>
+                  <option value="Temps Partiel">Temps Partiel</option>
+                  <option value="Stage">Stage</option>
+                  <option value="Freelance">Freelance</option>
+
+                </select>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+              <div class="form-group select-group">
+                <label>Type de contrat*</label>
+                <select class="form-select form-control" name="typeContrat" formControlName="typeContrat">
+                  <option value="CDI">CDI</option>
+                  <option value="SIVP">SIVP</option>
+                  <option value="CDD">CDD</option>
+                  <option value="karama">karama</option>
+
+                </select>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+              <div class="form-group select-group">
+                <label>Expérience*</label>
+                <select class="form-select form-control" name="experience" formControlName="experience">
+                  <option value="Débutant">Débutant</option>
+                  <option value="1 ans">1 année d'expérience</option>
+                  <option value="2 ans">2 ans d'expérience </option>
+                  <option value="5 ans"> 2 jusqu'à 5 ans d'expérience </option>
+                  <option value="plus que 5 ans  ">plus que 5 ans d'expérience </option>
+                </select>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+              <div class="form-group select-group">
+                <label>Niveau d'étude*</label>
+                <select class="form-select form-control" name="niveauEtudes" formControlName="niveauEtudes">
+                  <option value="Niveau lycée">Niveau lycée</option>
+                  <option value="TNiveau bac">Niveau bac</option>
+                  <option value="Licence">Licence </option>
+                  <option value="Master">Master </option>
+                  <option value="Ingénieur">Ingénieur</option>
+                </select>
+              </div>
+            </div>
+           <div class="col-lg-6 col-md-6">
+              <div class="form-group">
+                <label>Nombre de postes</label>
+                <input class="form-select form-control" name="nbrPoste" formControlName="nbrPoste"
+                  type="text"
+                  name="msg_subject"
+                  id="msg_subject"
+                  class="form-control"
+                  required=""
+                  data-error="Entrer nbre de postes"
+                  placeholder="Nombre de postes"
+                />
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+              <div class="form-group">
+                <label>Adresse</label>
+                <input class="form-select form-control" name="region" formControlName="region"
+                  type="text"
+                  name="msg_subject"
+                  id="msg_subject"
+                  class="form-control"
+                  required=""
+                  data-error="Entrer l'adresse"
+                  placeholder="Region & adresse"
+                />
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+              <div class="form-group select-group">
+                <label>Salary Currency</label>
+                <select class="form-select form-control" name="salaire" formControlName="salaire">
+                  <option value="1">Default</option>
+                  <option value="400DT - 600DT">400DT - 600DT</option>
+                  <option value="600DT - 800DT">600DT - 800DT</option>
+                  <option value="800DT - 1000DT">800DT - 1000DT</option>
+                  <option value="1000DT - 1200DT">1000DT - 1200DT</option>
+                  <option value="1200DT - 1500DT">1200DT - 1500DT</option>
+                  <option value="1500DT - 2000DT">1500DT - 2000DT</option>
+                  <option value="2000DT - 2500DT">2000DT - 2500DT</option>
+                  <option value="2500DT - 3000DT">2500DT - 3000DT</option>
+                  <option value="Plus que 3000DT">Plus que 3000DT</option>
+
+
+
+                </select>
+              </div>
+            </div>
+            <div class="col-lg-12 col-md-12">
+              <div class="form-group">
+                <label>Description générale*</label>
+                <textarea name="description" formControlName="description"
+                  class="form-control"
+                  cols="30"
+                  rows="5"
+                  required=""
+                  data-error="Write your Job Description"
+                ></textarea>
+              </div>
+            </div>
+            <div class="col-lg-12 col-md-12">
+              <div class="form-group">
+                <label>Compétences*</label>
+                <textarea name="competence" formControlName="competence"
+                  class="form-control"
+                  cols="30"
+                  rows="5"
+                  required=""
+                  data-error="Write your Job Description"
+                ></textarea>
+              </div>
+            </div>
+            <div class="col-lg-12 col-md-12">
+              <div class="form-group">
+                <label>Connaissance techniques requises*</label>
+                <textarea  name="connaissance_technique" formControlName="connaissance_technique"
+                  class="form-control"
+                  cols="30"
+                  rows="5"
+                  required=""
+                  data-error="Write your Job Description"
+                ></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <!-- <div class="col-lg-6 col-md-6">
+              <div class="form-group">
+                <label>Company Name</label>
+                <input class="form-control" type="text" name="Company" />
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+              <div class="form-group">
+                <label>Company Business</label>
+                <input
+                  class="form-control"
+                  type="text"
+                  name="Company Business"
+                />
+              </div>
+            </div> -->
+            <div class="col-lg-12 col-md-12">
+              <div class="agree-label">
+                <input type="checkbox" id="chb1" />
+                <label for="chb1">
+                  Accept
+                  <a href="terms-condition.html">Terms &amp; Conditions</a> And
+                  <a href="privacy-policy.html">Privacy Policy.</a>
+                </label>
+              </div>
+            </div>
+            <div class="col-lg-12 col-md-12">
+              <button type="submit" class="default-btn border-radius-5">
+                Enregistrer <i class="ri-chat-4-line"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!-- <div class="contact-form">
+        <h3>Company Information</h3>
+        <form id="contactForm">
+          <div class="row">
+            <div class="col-lg-12 col-md-12">
+              <div class="form-group">
+                <label>Company Name</label>
+                <input class="form-control" type="text" name="Company" />
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+              <div class="form-group">
+                <label>Company Website</label>
+                <input class="form-control" type="text" name="Website" />
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+              <div class="form-group">
+                <label>Company Industry</label>
+                <input class="form-control" type="text" name="Industry" />
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+              <div class="form-group">
+                <label>Facebook Page (Link)</label>
+                <input class="form-control" type="text" name="Link" />
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+              <div class="form-group">
+                <label>Linkedin Page (Link)</label>
+                <input class="form-control" type="text" name="Link" />
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+              <div class="form-group">
+                <label>Twitter Page (Link)</label>
+                <input class="form-control" type="text" name="Link" />
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+              <div class="form-group">
+                <label>Instagram Page (Link)</label>
+                <input class="form-control" type="text" name="Link" />
+              </div>
+            </div>
+            <div class="col-lg-12">
+              <div class="form-group">
+                <label>Company Description*</label>
+                <textarea
+                  name="message"
+                  class="form-control"
+                  rows="5"
+                ></textarea>
+              </div>
+            </div>
+            <div class="col-lg-12">
+              <div class="choose-img">
+                <p class="title">Logo (Optional)</p>
+                <label for="img">Select image:</label>
+                <input type="file" id="img" name="img" accept="image/*" />
+                <p>Maximum file size: 2 MB</p>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div> -->
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,51 @@
+<br>
+<br>
+<br>
+<b>
+
+</b>
+<br>
+
+<div class="breadcrumb-area">
+  <h1> Vos entretiens programmés</h1>
+  <ol class="breadcrumb">
+    <li class="item"><a href="dashboard.html">Profil</a></li>
+    <li class="item">Entretiens</li>
+  </ol>
+</div>
+
+<div class="packages-box">
+  <h2>Packages</h2>
+  <div class="packages-table table-responsive" >
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Entretien URL</th>
+          <th>Offre : </th>
+          <th>Entreprise :</th>
+          <th>Date</th>
+          <th>Heure</th>
+          <th>*****</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor = "let entretien of listentretienn; let index = index">
+          <td>{{index+1}}</td>
+          <td><a href="https://192.168.1.31:8443" class="btn btn-info" *ngIf="passer(entretien)">Passer entretien</a>
+          </td>
+          <td>{{entretien.didature.ofe.titre}}</td>
+          <td>{{entretien.didature.ca.firstName}}</td>
+          <td>{{entretien.dateEntretien}}</td>
+          <td>{{entretien.time}}</td>
+          <td></td>
+          <td>
+            <div class="status">{{entretien.accepte}}</div>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>
